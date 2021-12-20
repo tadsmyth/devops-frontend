@@ -25,13 +25,13 @@ function Header(props) {
   <div className="collapse navbar-collapse" id="navbarToggler">
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       <li className="nav-item active">
-        <a className="nav-link m-3" href="#"><span className="sr-only"><BsHouse /></span></a>
+        <a className="nav-link m-3" href="#"><span className="sr-only"><BsHouse size={30}/></span></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link m-3" href="#"><BsBell /></a>
+        <a className="nav-link m-3" href="#"><BsBell size={30}/></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link m-3" href="#"><BsGear /></a>
+        <a className="nav-link m-3" href="#"><BsGear size={30}/></a>
       </li>
     </ul>
     <ul className='navbar-nav flex-row flex-wrap ms-md-auto'>
