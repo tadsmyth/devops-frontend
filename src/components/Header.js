@@ -15,9 +15,8 @@ function Header(props) {
 <>
 <nav className="navbar flex-row flex-wrap navbar-expand-lg bg-primary navbar-dark py-3 fixed-top container-fluid">
   <a className="navbar-brand" href="#">
-      <img src={logo}  width="30" height="24" class="d-inline-block align-text-top"/>
-      DevOps
-      </a>
+      <img src={logo}  width="65" height="65" class="d-inline-block align-text-top"/>
+</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -25,13 +24,13 @@ function Header(props) {
   <div className="collapse navbar-collapse" id="navbarToggler">
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       <li className="nav-item active">
-        <a className="nav-link m-3" href="#"><span className="sr-only"><BsHouse /></span></a>
+        <a className="nav-link m-3" href="#"><span className="sr-only"><BsHouse size={35}/></span></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link m-3" href="#"><BsBell /></a>
+        <a className="nav-link m-3" href="#"><BsBell size={35}/></a>
       </li>
       <li className="nav-item">
-        <a className="nav-link m-3" href="#"><BsGear /></a>
+        <a className="nav-link m-3" href="#"><BsGear size={35}/></a>
       </li>
     </ul>
     <ul className='navbar-nav flex-row flex-wrap ms-md-auto'>
