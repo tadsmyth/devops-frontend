@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsBell, BsHouse, BsGear} from 'react-icons/bs'
-import logo from '../logos/Dev.png'
+import {CgInfinity} from 'react-icons/cg'
+
 
 
 
@@ -15,8 +16,9 @@ function Header(props) {
 <>
 <nav className="navbar flex-row flex-wrap navbar-expand-lg bg-primary navbar-dark py-3 fixed-top container-fluid">
   <a className="navbar-brand" href="#">
-      <img src={logo}  width="30" height="24" class="d-inline-block align-text-top"/>
-      DevOps
+    <CgInfinity className='m-1' size={45}/>
+      {/* <img src={logo}  width="30" height="24" class="d-inline-block align-text-top"/> */}
+     DevOps
       </a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
