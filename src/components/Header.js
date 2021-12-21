@@ -52,6 +52,3 @@ export default Header;
 
 
 
-// Need to put this search bar in the main task area, not the nav bar. - Tad
-
-
