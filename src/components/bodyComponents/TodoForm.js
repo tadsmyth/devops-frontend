@@ -1,32 +1,56 @@
 import React, {useState} from 'react';
+import {BiDotsVerticalRounded, BiComment} from 'react-icons/bi'
+import {FaRegFlag} from 'react-icons/fa'
+import {BsFillPersonPlusFill} from 'react-icons/bs'
 
 function TodoForm(props) {
     const [inputValue, setInputValue] = useState('')
-    const [inputValue2, setInputValue2] = useState('')
+    const [inputValue2, setInputValue2] = useState({
+        task: "",
+        description: ""
+        // icon: BiDotsVerticalRounded
+    })
     const [inputValue3, setInputValue3] = useState('')
+    const [icon, setIcon] = useState(false)
 
     const handleChange = e => {
         setInputValue(e.target.value)
         
     }
 
-    const handleChange2 = e => {
-        setInputValue2(e.target.value)
+   
+        const [hover, setHover] = useState(false);
+        const onHover = () => {
+          setHover(!hover)
+        }
+        const [hover2, setHover2] = useState(false);
+        const onHover2 = () => {
+          setHover(!hover2)
+        }
+
+
+    const handleTaskChange = e => {
+        setInputValue2({...inputValue2, task: e.target.value})
+    }
+    const handleDescriptionChange = e => {
+        setInputValue2({...inputValue2, description: e.target.value})
     }
 
-    const handleChange3 = e => {
-        setInputValue3(e.target.value)
-    }
+    // const handleChange3 = e => {
+    //     setInputValue3(e.target.value)
+    // }
 
     const handleSubmit = e => {
         e.preventDefault();
 
         props.onSubmit({
             // id: Math.floor(Math.random()* 1000),
-            text: inputValue
+            text: inputValue,
+            button: icon
         })
 
         setInputValue('')
+        setIcon()
     }
 
     const handleSubmit2 = e => {
@@ -34,30 +58,43 @@ function TodoForm(props) {
 
         props.onSubmit({
             // id: Math.floor(Math.random()* 1000),
-            text: inputValue2
+            text: inputValue2,
+            button: icon
         })
 
         setInputValue2('')
+        setIcon()
     }
 
-    const handleSubmit3 = e => {
-        e.preventDefault();
+    // const handleSubmit3 = e => {
+    //     e.preventDefault();
 
-        props.onSubmit({
-            // id: Math.floor(Math.random()* 1000),
-            text: inputValue3
-        })
+    //     props.onSubmit({
+    //         // id: Math.floor(Math.random()* 1000),
+    //         text: inputValue3,
+    //         button: icon
+    //     })
 
-        setInputValue3('')
-    }
+    //     setInputValue3('')
+    //     setIcon()
+    // }
 // probably did this wrong i think i just have to map through it im going to try that later
     return (
         <>
+        <div className="">
+        <button onMouseEnter={onHover} onMouseLeave={onHover} tabIndex='-3' >
+      { hover ? "Comments" : <BiComment /> }
+    </button>
+        <button onMouseEnter={onHover2} onMouseLeave={onHover2} tabIndex='-3' >
+      { hover ? "Share" : <BsFillPersonPlusFill />}
+    </button>
+        </div>
             <form className='projectForm' onSubmit={handleSubmit}>
                 <input
                     type='text'
                     placeholder='Project Name'
                     value={inputValue}
+                    button={setIcon}
                     name='text'
                     className='todoInput'
                     onChange={handleChange}
@@ -65,27 +102,37 @@ function TodoForm(props) {
                 <button>Add Project</button>
             </form>
             {/* not sure why its not working currently */}
-            <form className='taskForm' onSubmit={handleSubmit2 && handleSubmit3}>
+            
+            {icon ? <div>
+            <BiDotsVerticalRounded />
+            </div> : null}
+            <form className='taskForm' onSubmit={handleSubmit2}>
                 <input
                     type='text'
                     placeholder='Add a task'
-                    value={inputValue2}
-                    name='text'
+                    value={inputValue2.task}
+                    name='task'
+                    button={setIcon}
                     className='todoInput'
-                    onChange={handleChange2}
+                    onChange={handleTaskChange}
                     />
                     {/* </form>
                     <form className='taskForms' onSubmit={handleSubmit3}> */}
                 <input
                     type='text'
                     placeholder='Description'
-                    value={inputValue3}
-                    name='text'
+                    value={inputValue2.description}
+                    name='description'
+                    button={setIcon}
                     className='todoInput'
-                    onChange={handleChange3}
+                    onChange={handleDescriptionChange}
                     />
+                    {icon ? <div>
+            <FaRegFlag />
+            </div> : null}
                 <button>Add task</button>
             </form>
+
         </>
     );
 }
