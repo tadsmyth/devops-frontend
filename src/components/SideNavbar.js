@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FaChevronRight, FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar, FaCog, FaPlus, FaCheck} from 'react-icons/fa'
+import {FaChevronRight, FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar, FaCog, FaPlus} from 'react-icons/fa'
 import {MdOutlineSpaceDashboard} from 'react-icons/md'
 import {BsFillArrowLeftSquareFill, BsSearch,BsFillArrowRightSquareFill} from 'react-icons/bs'
 import '../App.css'
@@ -48,13 +48,9 @@ function Navbar(props) {
                        <FaCog size={22} className='m-2' />
                         Settings
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                    <a href="#" class="list-group-item list-group-item-action active p-3 bg-dark">
                        <FaPlus size={22} className='m-2' />
                         New Project
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaCheck size={22} className='m-2' />
-                        Completed
                     </a>
                 
         </ul>
