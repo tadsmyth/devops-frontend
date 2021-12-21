@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {FaChevronRight, FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar} from 'react-icons/fa'
+import {FaChevronRight, FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar, FaCog, FaPlus, FaCheck} from 'react-icons/fa'
 import {MdOutlineSpaceDashboard} from 'react-icons/md'
 import {BsFillArrowLeftSquareFill, BsSearch,BsFillArrowRightSquareFill} from 'react-icons/bs'
+import '../App.css'
 
 
 function Navbar(props) {
@@ -9,9 +10,72 @@ function Navbar(props) {
     const [unclick, setUnclick] = useState('false');
     const [submenu, setSubmenu] = useState('false');
 
+
+
+  // Menu hide and return button/function??? - Tad
+
     return (
-        <>
-        {/* when the screen is regular and isnt clicked the arrow will show to the left and all the nav stuff will show */}
+<>
+<div className='wrapper'>
+    {/* wrapper contains sidebar */}
+    <div className='sidebar'>
+        <div className='user'>
+           <a href='users'> <img src='https://randomuser.me/api/portraits/men/11.jpg' alt='profile pic'/></a>
+            <h3>John Smith</h3>
+        </div>
+
+        {/* menu items in here */}
+        <ul className='list-group'>
+                
+                <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <MdOutlineSpaceDashboard size={25} className='m-2'/>
+                       Dashboard
+                    </a>
+                
+                
+                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <FaRegCalendar size={22} className='m-2'/>
+                       Today
+                    </a>
+                
+                
+                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <FaRegCalendarAlt size={22} className='m-2'/>  Upcoming
+                    </a>
+                
+               
+                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <FaCog size={22} className='m-2' />
+                        Settings
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <FaPlus size={22} className='m-2' />
+                        New Project
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <FaCheck size={22} className='m-2' />
+                        Completed
+                    </a>
+                
+        </ul>
+
+    </div>
+</div>
+
+
+{/* <div className="d-flex flex-column vh-50 flex-shrink-0 p-3 text-white bg-dark mt-3">
+    <hr/>
+    <br />
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li> <a href="#" class="nav-link text-white"> <span class="ms-2"><MdOutlineSpaceDashboard size={25}/>  Dashboard</span> </a> </li>
+        <li> <a href="#" class="nav-link text-white"> <span class="ms-2"><FaRegCalendar size={22}/>   Today</span> </a> </li>
+        <li> <a href="#" class="nav-link text-white"> <span class="ms-2"><FaRegCalendarAlt size={22}/>   Upcoming</span> </a> </li>
+    </ul>
+</div> */}
+
+
+
+ {/* when the screen is regular and isnt clicked the arrow will show to the left and all the nav stuff will show */}
         {/* as the screen gets smaller or the arrow is clicked the arrow will switch to the right and only the nav icons will show */}
         {/* click on the arrow works you just have to add the css */}
         <div className={`side-bar ${unclick ? 'unclick' : ''}`}>
@@ -19,44 +83,9 @@ function Navbar(props) {
                 {/* when you click this another menu btn will show */}
                 {unclick ? <BsFillArrowRightSquareFill/> : <BsFillArrowLeftSquareFill /> }
             </div>
-            {/* wasnt sure if you wanted to add this you can remove the search bar if youd like  you can keep it in the header or the Nav*/}
-            <div className="searchBar">
-                <input type="text" placeholder="search"/>
-            <button className="searchBtn">
-                <BsSearch />
-            </button>
-            </div>
-            {/* the thin line that seberates the sections */}
-            <div className="line"></div>
+           
 
-        <div>
-            <ul>
-                <li>
-                    <a className="menu">
-                        <div classNmae="menuIcons">
-                            <MdOutlineSpaceDashboard />
-                        </div>
-                            <span>Dashboard</span>
-                    </a>
-                </li>
-                <li>
-                    <a className="menu">
-                        <div classNmae="menuIcons">
-                            <FaRegCalendar />
-                        </div>
-                            <span>Today</span>
-                    </a>
-                </li>
-                <li>
-                    <a className="menu">
-                        <div classNmae="menuIcons">
-                            <FaRegCalendarAlt />
-                        </div>
-                            <span>Upcoming</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
+       
             {/* im the side bar */}
             <ul ClassName="navbar">
                 {/* stretch goal */}
@@ -83,7 +112,15 @@ function Navbar(props) {
             {/* adding the project components will go here I have to add them */}
             </div>
         </div>
-        </>
+
+
+
+
+
+
+
+</>
+
     );
 }
 
