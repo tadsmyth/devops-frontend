@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import TodoForm from './TodoForm'
 
-// const url = "http://localhost:4000/devops"
+const url = "http://localhost:4000/devops/"
 
 function AddingTodo({todos, completeTodo}) {
     const [edit, setEdit] = useState({
@@ -9,14 +9,14 @@ function AddingTodo({todos, completeTodo}) {
     })
     const [dev, setDev] = useState([])
 
-    // useEffect(() => {
-    //     fetch(url)
-    //         .then((res) => res.json())
-    //         .then((res) => {setDev(res.devops)
-    //         console.log(setDev);
-    //         })
-    //         .catch(console.err);
-    //     }, [])
+    useEffect(() => {
+        fetch(url)
+            .then((res) => res.json())
+            .then((res) => {setDev(res)
+            console.log("Dev Data:", dev);
+            })
+            .catch(console.err);
+        }, [])
 
     return todos.map((todo, index) => (
         <>

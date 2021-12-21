@@ -44,10 +44,6 @@ function TodoForm(props) {
         setInputValue3(e.target.value)
     }
 
-    const handleChange3 = e => {
-        setInputValue3(e.target.value)
-    }
-
     const handleSubmit = e => {
         e.preventDefault();
 
