@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {FaChevronRight, FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar} from 'react-icons/fa'
+import {FaChevronRight, FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar, FaCog, FaPlus} from 'react-icons/fa'
 import {MdOutlineSpaceDashboard} from 'react-icons/md'
 import {BsFillArrowLeftSquareFill, BsSearch,BsFillArrowRightSquareFill} from 'react-icons/bs'
+import '../App.css'
 
 
 function Navbar(props) {
@@ -9,9 +10,56 @@ function Navbar(props) {
     const [unclick, setUnclick] = useState('false');
     const [submenu, setSubmenu] = useState('false');
 
+
+
+  // Menu hide and return button/function??? - Tad
+
     return (
 <>
-        <div className="d-flex flex-column vh-50 flex-shrink-0 p-3 text-white bg-dark mt-3">
+<div className='wrapper'>
+    {/* wrapper contains sidebar */}
+    <div className='sidebar'>
+        <div className='user'>
+           <a href='users'> <img src='https://randomuser.me/api/portraits/men/11.jpg' alt='profile pic'/></a>
+            <h3>John Smith</h3>
+        </div>
+
+        {/* menu items in here */}
+        <ul className='list-group'>
+                
+                <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <MdOutlineSpaceDashboard size={25} className='m-2'/>
+                       Dashboard
+                    </a>
+                
+                
+                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <FaRegCalendar size={22} className='m-2'/>
+                       Today
+                    </a>
+                
+                
+                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <FaRegCalendarAlt size={22} className='m-2'/>  Upcoming
+                    </a>
+                
+               
+                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                       <FaCog size={22} className='m-2' />
+                        Settings
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action active p-3 bg-dark">
+                       <FaPlus size={22} className='m-2' />
+                        New Project
+                    </a>
+                
+        </ul>
+
+    </div>
+</div>
+
+
+{/* <div className="d-flex flex-column vh-50 flex-shrink-0 p-3 text-white bg-dark mt-3">
     <hr/>
     <br />
     <ul class="nav nav-pills flex-column mb-auto">
@@ -19,7 +67,7 @@ function Navbar(props) {
         <li> <a href="#" class="nav-link text-white"> <span class="ms-2"><FaRegCalendar size={22}/>   Today</span> </a> </li>
         <li> <a href="#" class="nav-link text-white"> <span class="ms-2"><FaRegCalendarAlt size={22}/>   Upcoming</span> </a> </li>
     </ul>
-</div>
+</div> */}
 
 
 
