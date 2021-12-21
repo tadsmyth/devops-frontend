@@ -44,6 +44,10 @@ function TodoForm(props) {
         setInputValue3(e.target.value)
     }
 
+    const handleChange3 = e => {
+        setInputValue3(e.target.value)
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
 
@@ -82,6 +86,7 @@ function TodoForm(props) {
     //     setInputValue3('')
     //     setIcon()
     // }
+
 // probably did this wrong i think i just have to map through it im going to try that later
     return (
         <>
@@ -106,6 +111,7 @@ function TodoForm(props) {
                 <button>Add Project</button>
             </form>
             {/* not sure why its not working currently */}
+
             
             {icon ? <div>
             <BiDotsVerticalRounded />
@@ -125,6 +131,7 @@ function TodoForm(props) {
                 <input
                     type='text'
                     placeholder='Description'
+
                     value={inputValue2.description}
                     name='description'
                     button={setIcon}
@@ -134,6 +141,7 @@ function TodoForm(props) {
                     {icon ? <div>
             <FaRegFlag />
             </div> : null}
+
                 <button>Add task</button>
             </form>
 
