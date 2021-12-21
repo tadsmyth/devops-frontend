@@ -2,13 +2,6 @@ import React from 'react';
 import { BsBell, BsHouse, BsGear} from 'react-icons/bs'
 import {CgInfinity} from 'react-icons/cg'
 
-
-
-
-
-
-
-
 function Header(props) {
 
 
@@ -21,7 +14,7 @@ function Header(props) {
       {/* <img src={logo}  width="30" height="24" class="d-inline-block align-text-top"/> */}
      DevOps
       </a>
-      
+
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
