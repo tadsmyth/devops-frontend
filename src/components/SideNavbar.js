@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import {FaChevronRight, FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar, FaCog, FaPlus, FaCheck} from 'react-icons/fa'
 import {MdOutlineSpaceDashboard} from 'react-icons/md'
+import {Link} from "react-router-dom";
 import {BsFillArrowLeftSquareFill, BsSearch,BsFillArrowRightSquareFill} from 'react-icons/bs'
 import '../App.css'
+import Today from '../components/navBar/Today'
+import Dashboard from '../components/navBar/Dashboard'
 
 
 function Navbar(props) {
@@ -31,9 +34,21 @@ function Navbar(props) {
                        <MdOutlineSpaceDashboard size={25} className='m-2'/>
                        Dashboard
                     </a>
+                    {/* isnt working not sure why */}
+                    
+                {/* <Link to="/Dashboard" className="list-group-item list-group-item-action active p-3">
+                <MdOutlineSpaceDashboard size={25} className='m-2'/>
+                       Dashboard
+            </Link> */}
+
+                    {/* <Link to="/Today">
+                <li class="list-group-item list-group-item-action active p-3">
+                <FaRegCalendar size={22} className='m-2'/>
+                       Today
+                </li>
+            </Link>  */}
                 
-                
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
+                    <a href="/Today" class="list-group-item list-group-item-action active p-3">
                        <FaRegCalendar size={22} className='m-2'/>
                        Today
                     </a>

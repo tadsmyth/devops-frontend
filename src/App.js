@@ -5,8 +5,11 @@ import Header from './components/Header';
 import Contents from './components/Contents';
 import CreatingTasks from './components/bodyComponents/CreatingTasks';
 import dataContext from './components/Context';
+import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
 import Fetch from './components/Fetch';
 import {useState, useEffect} from 'react'
+import Dashboard from './components/navBar/Dashboard'
+import Today from './components/navBar/Today'
 
 function App() {
 
@@ -37,7 +40,7 @@ useEffect(() => {
   fetch(`${url}task`)
       .then((res) => res.json())
       .then((res) => {setTasks(res)
-      console.log("Task/To-Do Data:", tasks)
+      console.log("Task/ToDo Data:", tasks)
       })
       .catch(console.err);
 
@@ -49,6 +52,11 @@ useEffect(() => {
           {/* <Fetch /> */}
           <h1>Todo</h1>
           <Header />
+          {/* isnt working not sure why */}
+          {/* <SideNavbar /> */}
+          {/* <Route exact path="/" />
+          <Route exact path="/Dashboard" component={Dashboard} />
+          <Route exact path="/Today" component={Today} /> */}
           <Contents />
           <CreatingTasks />
       </dataContext.Provider>
