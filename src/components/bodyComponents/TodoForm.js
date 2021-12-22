@@ -18,7 +18,6 @@ function TodoForm(props) {
         
     }
 
-   
         const [hover, setHover] = useState(false);
         const onHover = () => {
           setHover(!hover)
@@ -34,14 +33,6 @@ function TodoForm(props) {
     }
     const handleDescriptionChange = e => {
         setInputValue2({...inputValue2, description: e.target.value})
-    }
-
-    // const handleChange3 = e => {
-    //     setInputValue3(e.target.value)
-    // }
-
-    const handleChange3 = e => {
-        setInputValue3(e.target.value)
     }
 
     const handleChange3 = e => {
