@@ -82,10 +82,11 @@ function TodoForm(props) {
     return (
         <>
         <div className="">
-        <button onMouseEnter={onHover} onMouseLeave={onHover} tabIndex='-3' >
+            {/* The hover state is cool but it makes hitting the button kinda tricky when it changes size. Thoughts on removing? - Tad */}
+        <button className='btn btn-sm btn-dark' onMouseEnter={onHover} onMouseLeave={onHover} tabIndex='-3' >
       { hover ? "Comments" : <BiComment /> }
     </button>
-        <button onMouseEnter={onHover2} onMouseLeave={onHover2} tabIndex='-3' >
+        <button className='btn btn-sm btn-dark' onMouseEnter={onHover2} onMouseLeave={onHover2} tabIndex='-3' >
       { hover ? "Share" : <BsFillPersonPlusFill />}
     </button>
         </div>
@@ -99,7 +100,7 @@ function TodoForm(props) {
                     className='todoInput'
                     onChange={handleChange}
                     />
-                <button>Add Project</button>
+                <button className='btn btn-sm btn-dark'>Add Project</button>
             </form>
             {/* not sure why its not working currently */}
 
@@ -133,7 +134,7 @@ function TodoForm(props) {
             <FaRegFlag />
             </div> : null}
 
-                <button>Add task</button>
+                <button className='btn btn-sm btn-dark'>Add task</button>
             </form>
 
         </>
