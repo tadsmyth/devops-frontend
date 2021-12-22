@@ -55,18 +55,18 @@ useEffect(() => {
           {/* <Fetch /> */}
           <h1>Todo</h1>
           {/* {projects ? projects.map((p) => <p>{p.name}</p>) : null} */}
-          <Header />
+          {/* <Header /> */}
           {/* isnt working not sure why */}
           {/* <SideNavbar /> */}
           {/* <Route exact path="/" /> */}
-          <div className="container text-center m-5">
+         
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/today" component={Today} />
           <Route exact path="/upcoming" component={Upcoming} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/completed" component={Completed} />
-          </div>
-          <Contents />
+          
+          {/* <Contents /> */}
           {/* <CreatingTasks /> */}
           
       </dataContext.Provider>
