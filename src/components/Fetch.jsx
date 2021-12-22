@@ -26,7 +26,7 @@ useEffect(() => {
   fetch(`${url}task`)
       .then((res) => res.json())
       .then((res) => {datum.setTasks(res)
-      console.log("Task/ToDo Data:", datum.tasks)
+      console.log("Task/ToDo Daum:", datum.tasks)
       })
       .catch(console.err);
 
