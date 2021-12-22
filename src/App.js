@@ -55,7 +55,7 @@ useEffect(() => {
           {/* <Fetch /> */}
           <h1>Todo</h1>
           {/* {projects ? projects.map((p) => <p>{p.name}</p>) : null} */}
-          {/* <Header /> */}
+          <Header />
           {/* isnt working not sure why */}
           {/* <SideNavbar /> */}
           {/* <Route exact path="/" /> */}
@@ -66,7 +66,7 @@ useEffect(() => {
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/completed" component={Completed} />
           
-          {/* <Contents /> */}
+          <Contents />
           {/* <CreatingTasks /> */}
           
       </dataContext.Provider>
