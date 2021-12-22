@@ -1,9 +1,10 @@
 import React from 'react';
+
 //isnt working not sure why
 function Today(props) {
     return (
         <div>
-            in today
+           in today section
         </div>
     );
 }

@@ -5,6 +5,7 @@ import SideNavbar from './SideNavbar'
 function Contents(props) {
     return (
         <>
+        
         <SideNavbar />
         </>
     );

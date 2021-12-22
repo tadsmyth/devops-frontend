@@ -30,47 +30,48 @@ function Navbar(props) {
         {/* menu items in here */}
         <ul className='list-group'>
                 
-                <a href="#" class="list-group-item list-group-item-action active p-3">
+                {/* <a href="#" class="list-group-item list-group-item-action active p-3">
                        <MdOutlineSpaceDashboard size={25} className='m-2'/>
                        Dashboard
-                    </a>
+                    </a> */}
                     {/* isnt working not sure why */}
                     
-                {/* <Link to="/Dashboard" className="list-group-item list-group-item-action active p-3">
+                <Link to="/" className="list-group-item list-group-item-action active p-3">
                 <MdOutlineSpaceDashboard size={25} className='m-2'/>
                        Dashboard
-            </Link> */}
+            </Link>
 
-                    {/* <Link to="/Today">
+                    <Link to="/today">
                 <li class="list-group-item list-group-item-action active p-3">
                 <FaRegCalendar size={22} className='m-2'/>
                        Today
                 </li>
-            </Link>  */}
-                
-                    <a href="/Today" class="list-group-item list-group-item-action active p-3">
-                       <FaRegCalendar size={22} className='m-2'/>
-                       Today
-                    </a>
-                
-                
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaRegCalendarAlt size={22} className='m-2'/>  Upcoming
-                    </a>
-                
-               
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaCog size={22} className='m-2' />
-                        Settings
-                    </a>
+            </Link> 
+                    <Link to="/upcoming">
+                <li class="list-group-item list-group-item-action active p-3">
+                <FaRegCalendarAlt size={22} className='m-2'/>
+                       Upcoming
+                </li>
+            </Link> 
+                    <Link to="/settings">
+                <li class="list-group-item list-group-item-action active p-3">
+                <FaCog size={22} className='m-2' />
+                       Settings
+                </li>
+            </Link> 
                     <a href="#" class="list-group-item list-group-item-action active p-3">
                        <FaPlus size={22} className='m-2' />
                         New Project
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaCheck size={22} className='m-2' />
-                        Completed
-                    </a>
+                    
+                    <Link to="/completed">
+                <li class="list-group-item list-group-item-action active p-3">
+                <FaCheck size={22} className='m-2' />
+                       Completed
+                </li>
+            </Link> 
+                
+               
                 
         </ul>
 

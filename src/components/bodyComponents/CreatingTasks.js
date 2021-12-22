@@ -27,6 +27,7 @@ function CreatingTasks() {
     }
     return (
         <>
+       
         <div>
         <button>Create Task</button>
         <h1>Adding the Todos</h1>
@@ -36,6 +37,8 @@ function CreatingTasks() {
         todos={todos}
         completeTodos={completeTodo}
         />
+       
+        
         </>
     );
 }
