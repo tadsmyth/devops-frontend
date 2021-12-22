@@ -5,8 +5,14 @@ import Header from './components/Header';
 import Contents from './components/Contents';
 import CreatingTasks from './components/bodyComponents/CreatingTasks';
 import dataContext from './components/Context';
+import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
 import Fetch from './components/Fetch';
 import {useState, useEffect} from 'react'
+import Dashboard from './components/navBar/Dashboard'
+import Today from './components/navBar/Today'
+import Upcoming from './components/navBar/Upcoming'
+import Completed from './components/navBar/Completed'
+import Settings from './components/navBar/Settings'
 
 function App() {
 
@@ -48,9 +54,21 @@ useEffect(() => {
       <dataContext.Provider value={{devs, setDevs, projects, setProjects, tasks, setTasks}}>
           {/* <Fetch /> */}
           <h1>Todo</h1>
+          {/* {projects ? projects.map((p) => <p>{p.name}</p>) : null} */}
           <Header />
+          {/* isnt working not sure why */}
+          {/* <SideNavbar /> */}
+          {/* <Route exact path="/" /> */}
+          <div className="container text-center m-5">
+          <Route exact path="/" component={Dashboard} />
+          <Route exact path="/today" component={Today} />
+          <Route exact path="/upcoming" component={Upcoming} />
+          <Route exact path="/settings" component={Settings} />
+          <Route exact path="/completed" component={Completed} />
+          </div>
           <Contents />
-          <CreatingTasks />
+          {/* <CreatingTasks /> */}
+          
       </dataContext.Provider>
     </div>
   );

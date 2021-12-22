@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import {FaChevronRight, FaChevronDown, FaInbox, FaRegCalendarAlt, FaRegCalendar, FaCog, FaPlus, FaCheck} from 'react-icons/fa'
 import {MdOutlineSpaceDashboard} from 'react-icons/md'
+import {Link} from "react-router-dom";
 import {BsFillArrowLeftSquareFill, BsSearch,BsFillArrowRightSquareFill} from 'react-icons/bs'
 import '../App.css'
+import Today from '../components/navBar/Today'
+import Dashboard from '../components/navBar/Dashboard'
 
 
 function Navbar(props) {
@@ -27,35 +30,48 @@ function Navbar(props) {
         {/* menu items in here */}
         <ul className='list-group'>
                 
-                <a href="#" class="list-group-item list-group-item-action active p-3">
+                {/* <a href="#" class="list-group-item list-group-item-action active p-3">
                        <MdOutlineSpaceDashboard size={25} className='m-2'/>
                        Dashboard
-                    </a>
-                
-                
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaRegCalendar size={22} className='m-2'/>
+                    </a> */}
+                    {/* isnt working not sure why */}
+                    
+                <Link to="/" className="list-group-item list-group-item-action active p-3">
+                <MdOutlineSpaceDashboard size={25} className='m-2'/>
+                       Dashboard
+            </Link>
+
+                    <Link to="/today">
+                <li class="list-group-item list-group-item-action active p-3">
+                <FaRegCalendar size={22} className='m-2'/>
                        Today
-                    </a>
-                
-                
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaRegCalendarAlt size={22} className='m-2'/>  Upcoming
-                    </a>
-                
-               
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaCog size={22} className='m-2' />
-                        Settings
-                    </a>
+                </li>
+            </Link> 
+                    <Link to="/upcoming">
+                <li class="list-group-item list-group-item-action active p-3">
+                <FaRegCalendarAlt size={22} className='m-2'/>
+                       Upcoming
+                </li>
+            </Link> 
+                    <Link to="/settings">
+                <li class="list-group-item list-group-item-action active p-3">
+                <FaCog size={22} className='m-2' />
+                       Settings
+                </li>
+            </Link> 
                     <a href="#" class="list-group-item list-group-item-action active p-3">
                        <FaPlus size={22} className='m-2' />
                         New Project
                     </a>
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaCheck size={22} className='m-2' />
-                        Completed
-                    </a>
+                    
+                    <Link to="/completed">
+                <li class="list-group-item list-group-item-action active p-3">
+                <FaCheck size={22} className='m-2' />
+                       Completed
+                </li>
+            </Link> 
+                
+               
                 
         </ul>
 
