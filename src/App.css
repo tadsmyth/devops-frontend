@@ -2,6 +2,14 @@
     background-color: black;
 }
 
+.main-body {
+    padding-top: 3.9rem;
+}
+
+.header {
+    height: 5rem;
+   
+}
 
 .wrapper .sidebar{
     background: #0d6efd;

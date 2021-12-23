@@ -55,11 +55,11 @@ useEffect(() => {
           {/* <Fetch /> */}
           
           {/* {projects ? projects.map((p) => <p>{p.name}</p>) : null} */}
-          {/* <Header /> */}
+          <Header />
           {/* isnt working not sure why */}
           {/* <SideNavbar /> */}
           {/* <Route exact path="/" /> */}
-          <body className="container fluid">
+          <body className='main-body'>
          <SideNavbar />
          {/* <Dashboard /> */}
 
