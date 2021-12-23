@@ -1,33 +1,39 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import AddingTodo from '../bodyComponents/AddingTodo'
 import CreatingTasks from '../bodyComponents/CreatingTasks'
 import TodoForm from '../bodyComponents/TodoForm'
 import dataContext from '../Context'
-import { useContext } from 'react'
 import TaskCard from '../bodyComponents/TaskCard';
+import CurrentProject from '../CurrentProject';
 
-//isnt working not sure why
 function Dashboard(props) {
     let datum = useContext( dataContext )
+    let projectTasks = []
   
     useEffect( () => {
-       if(datum.projects.length)
-            { let currentProjID = datum.projects[0]._id
+       if(datum.projects.length){
+            let currentProjID = datum.projects[0]._id
             console.log("Datum:", datum)
             console.log("Projs:", datum.projects, " || Current:", currentProjID)
             console.log("Devs:", datum.devs)
-            console.log("tasks:", datum.tasks)}
+            console.log("tasks:", datum.tasks)
+
+            //finds current project location
+            for(let i = 0; i<datum.tasks.length; i++){
+                if(currentProjID==datum.tasks[i].projectID)
+                    projectTasks.push(datum.tasks[i])
+            }
+        
+            console.log(projectTasks)
+        }
     }, [datum])
    
 
-    //finds current project location
-    for(let i = 0; i<datum.projects.length; i++){
-        //if(currentProj==datum.projects[i]._id)
-            //currentProj
-    }
+    
 
     return (
         <div className='bg-secondary'>
+            <CurrentProject />
             {/* div for the buttons bar at the top */}
             <div className='d-flex flex-row-reverse mt-5 pt-3 px-2'>
                 <CreatingTasks />
