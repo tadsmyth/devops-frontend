@@ -2,7 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideNavbar from './components/SideNavbar';
 import Header from './components/Header';
-import Contents from './components/Contents';
 import CreatingTasks from './components/bodyComponents/CreatingTasks';
 import dataContext from './components/Context';
 import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
@@ -43,7 +42,7 @@ useEffect(() => {
   fetch(`${url}task`)
       .then((res) => res.json())
       .then((res) => {setTasks(res)
-      console.log("Task/To-Do Data:", tasks)
+      console.log("Task/ToDo Data:", tasks)
       })
       .catch(console.err);
 
@@ -53,20 +52,23 @@ useEffect(() => {
     <div className="App">
       <dataContext.Provider value={{devs, setDevs, projects, setProjects, tasks, setTasks}}>
           {/* <Fetch /> */}
-          <h1>Todo</h1>
+          
           {/* {projects ? projects.map((p) => <p>{p.name}</p>) : null} */}
           {/* <Header /> */}
           {/* isnt working not sure why */}
           {/* <SideNavbar /> */}
           {/* <Route exact path="/" /> */}
-         
+          <body className="container fluid justify-content-center text-center">
+         <SideNavbar />
+         {/* <Dashboard /> */}
+
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/today" component={Today} />
           <Route exact path="/upcoming" component={Upcoming} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/completed" component={Completed} />
+          </body>
           
-          <Contents />
           {/* <CreatingTasks /> */}
           
       </dataContext.Provider>
