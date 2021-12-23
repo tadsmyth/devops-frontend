@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import dataContext from './Context';
 import { Dropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 
@@ -8,7 +9,6 @@ import { Dropdown } from 'react-bootstrap';
 const CurrentProject = () => {
 
   let datum = useContext( dataContext )
-  
     useEffect( () => {
        if(datum.projects.length)
             { let currentProjID = datum.projects[0]._id
@@ -18,19 +18,22 @@ const CurrentProject = () => {
             console.log("tasks:", datum.tasks)}
     }, [datum])
 
+
+
+
   return (
     <div>
       <Dropdown>
-  <Dropdown.Toggle className='project-button' variant="success" id="dropdown-basic">
-   Projects
-  </Dropdown.Toggle>
+        <Dropdown.Toggle className='project-button' variant="success" id="dropdown-basic">
+          Projects
+        </Dropdown.Toggle>
 
-  <Dropdown.Menu>
-    <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
+          <Dropdown.Menu>
+              {/* <Dropdown.Item href="#">Project 1</Dropdown.Item> */}
+              {datum.projects.map( project => <Link to={`/${project._id}`}><Dropdown.Item href='#'>{project.name}</Dropdown.Item></Link> )}
+
+          </Dropdown.Menu>
+      </Dropdown>
 
     </div>
   );
