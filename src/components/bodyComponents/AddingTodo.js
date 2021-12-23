@@ -22,7 +22,7 @@ function AddingTodo({todos, completeTodo}) {
         <>
             <div className={todo.isComplete ? 'todoComplete' : 'addingTodo'} key={index}>
             
-            <div key={todo.name} onclick={() => completeTodo(todo.text)}>
+            <div key={todo.name} onClick={() => completeTodo(todo.text)}>
             {todo.text}
             </div>
 

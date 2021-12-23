@@ -14,7 +14,7 @@ function CreatingTasks() {
         const newTodos = [todo, ...todos]
 
         setTodos(newTodos)
-        console.log(...todos);
+        console.log(todos);
     }
 
     const completeTodo = id => {

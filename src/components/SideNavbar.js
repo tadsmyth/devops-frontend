@@ -94,11 +94,6 @@ function Navbar(props) {
  {/* when the screen is regular and isnt clicked the arrow will show to the left and all the nav stuff will show */}
         {/* as the screen gets smaller or the arrow is clicked the arrow will switch to the right and only the nav icons will show */}
         {/* click on the arrow works you just have to add the css */}
-        <div className={`side-bar ${unclick ? 'unclick' : ''}`}>
-            <div onClick={() => {setUnclick(!unclick)}} className="toggleBtn">
-                {/* when you click this another menu btn will show */}
-                {unclick ? <BsFillArrowRightSquareFill/> : <BsFillArrowLeftSquareFill /> }
-            </div>
            
 
        
@@ -111,23 +106,22 @@ function Navbar(props) {
                 {/* brings in upcoming tasks when clicked */}
             {/* <li className="menu" onClick={() => setShowLinks(!showLinks)}>☰</li> */}
             </ul>
-            <div className={`projectNav ${submenu ? 'submenu' : ''}`}>
+            {/* <div className={`projectNav ${submenu ? 'submenu' : ''}`}>
                 <div onClick={() => {setSubmenu(!submenu)}}>
                 {submenu ? <FaChevronRight /> : <FaChevronDown />}
                 <h2>Projects</h2>
-                </div>
-            <ul className="dummyProjects">Projects will be here</ul>
-            <div onClick={() => {setSubmenu(!submenu)}}>
+                </div> */}
+            {/* <ul className="dummyProjects">Projects will be here</ul> */}
+            {/* <div onClick={() => {setSubmenu(!submenu)}}>
                 {submenu ? <FaChevronRight /> : <FaChevronDown />}
                 <h2>Label</h2>
                 </div>
                 <div onClick={() => {setSubmenu(!submenu)}}>
                 {submenu ? <FaChevronRight /> : <FaChevronDown />}
                 <h2>Filter</h2>
-                </div>
+                </div> */}
             {/* adding the project components will go here I have to add them */}
-            </div>
-        </div>
+            {/* </div> */}
 
 
 
