@@ -18,6 +18,7 @@ function App() {
 const [devs, setDevs] = useState([])
 const [projects, setProjects] = useState([])
 const [tasks, setTasks] = useState([])
+const [currentProject, setCurrentProject] = useState('')
 
 const url = "http://localhost:4000/"
 
@@ -50,7 +51,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <dataContext.Provider value={{devs, setDevs, projects, setProjects, tasks, setTasks}}>
+      <dataContext.Provider value={{devs, setDevs, projects, setProjects, tasks, setTasks, currentProject, setCurrentProject}}>
           {/* <Fetch /> */}
           
           {/* {projects ? projects.map((p) => <p>{p.name}</p>) : null} */}
