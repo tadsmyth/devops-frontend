@@ -59,7 +59,7 @@ useEffect(() => {
           {/* isnt working not sure why */}
           {/* <SideNavbar /> */}
           {/* <Route exact path="/" /> */}
-          <body className="container fluid justify-content-center text-center">
+          <body className="container fluid">
          <SideNavbar />
          {/* <Dashboard /> */}
 
