@@ -10,7 +10,7 @@ function Header(props) {
 
     return (
 <>
-<nav className="navbar flex-row flex-wrap navbar-expand-lg bg-primary navbar-dark py-3 fixed-top container-fluid">
+<nav className="header navbar flex-row flex-wrap navbar-expand-lg bg-primary navbar-dark py-1 fixed-top container-fluid">
   <a className="navbar-brand" href="#">
 
   <CgInfinity className='m-1' size={45} />
@@ -28,7 +28,7 @@ function Header(props) {
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       <Link to="/">
                 <li className="nav-item active">
-                <a className="nav-link m-3" href="#">
+                <a className="nav-link m-2" href="#">
                 <span className="sr-only"><BsHouse size={30}/></span>
                        </a>
                 </li>
@@ -37,21 +37,21 @@ function Header(props) {
             {/* Change later for message modal */}
       <Link to="/today">
                 <li className="nav-item">
-                <a className="nav-link m-3" href="#">
+                <a className="nav-link m-2" href="#">
                 <BsBell size={30}/>
                        </a>
                 </li>
             </Link> 
       <Link to="/settings">
                 <li className="nav-item">
-                <a className="nav-link m-3" href="#">
+                <a className="nav-link m-2" href="#">
                 <BsGear size={30}/>
                        </a>
                 </li>
             </Link> 
     </ul>
     <ul className='navbar-nav flex-row flex-wrap ms-md-auto'>
-        <h2 className='justify-center p-3 text-light'>Current Project Name</h2>
+        <h2 className='justify-center p-1 text-light'>Current Project Name</h2>
     </ul>
     <form className="form-inline my-2 my-lg-0">
       <input className="form-control mr-sm-2" type="search" placeholder="Search Tasks" />

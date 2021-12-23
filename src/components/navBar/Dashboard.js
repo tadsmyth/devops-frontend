@@ -29,9 +29,8 @@ function Dashboard(props) {
     
     return (
         <div className='bg-secondary'>
-            <CurrentProject />
             {/* div for the buttons bar at the top */}
-            <div className='d-flex flex-row-reverse mt-5 pt-3 px-2'>
+            <div className='d-flex flex-row-reverse p-4'>
                 <CreatingTasks />
             </div>
             

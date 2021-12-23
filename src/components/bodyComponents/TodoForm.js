@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {BiDotsVerticalRounded, BiComment} from 'react-icons/bi'
 import {FaRegFlag} from 'react-icons/fa'
 import {BsFillPersonPlusFill} from 'react-icons/bs'
+import CurrentProject from '../CurrentProject';
 
 function TodoForm(props) {
     const [inputValue, setInputValue] = useState('')
@@ -85,7 +86,8 @@ function TodoForm(props) {
 // probably did this wrong i think i just have to map through it im going to try that later
     return (
         <>
-        <div className="">
+        <div className="btn-group">
+    <CurrentProject />
             {/* The hover state is cool but it makes hitting the button kinda tricky when it changes size. Thoughts on removing? - Tad */}
         <button className='btn btn-sm btn-dark' onMouseEnter={onHover} onMouseLeave={onHover} tabIndex='-3' >
       { hover ? "Comments" : <BiComment /> }
@@ -93,8 +95,9 @@ function TodoForm(props) {
         <button className='btn btn-sm btn-dark' onMouseEnter={onHover2} onMouseLeave={onHover2} tabIndex='-3' >
       { hover ? "Share" : <BsFillPersonPlusFill />}
     </button>
-        </div>
-            <form className='projectForm' onSubmit={handleSubmit}>
+    <button className='btn btn-sm btn-dark'>Add task</button>
+
+<form className='projectForm' onSubmit={handleSubmit}>
                 <input
                     type='text'
                     placeholder='Project Name'
@@ -106,6 +109,10 @@ function TodoForm(props) {
                     />
                 <button className='btn btn-sm btn-dark'>Add Project</button>
             </form>
+
+
+        </div>
+            
             {/* not sure why its not working currently */}
 
             
@@ -138,7 +145,7 @@ function TodoForm(props) {
             <FaRegFlag />
             </div> : null}
 
-                <button className='btn btn-sm btn-dark'>Add task</button>
+                
             </form>
 
         </>
