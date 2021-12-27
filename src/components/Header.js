@@ -1,6 +1,10 @@
 import React from 'react';
 import { BsBell, BsHouse, BsGear} from 'react-icons/bs'
 import {Link, Router} from 'react-router-dom'
+import Adding from './todoModal/Adding'
+import CurrentProject from './CurrentProject'
+import dataContext from './Context'
+import {datum} from './CurrentProject'
 
 // import logo from '../logos/Dev.png'
 import {CgInfinity} from 'react-icons/cg'
@@ -48,10 +52,13 @@ function Header(props) {
                 <BsGear size={30}/>
                        </a>
                 </li>
-            </Link> 
+            </Link>
+            <li>
+                  <Adding />
+            </li>
     </ul>
     <ul className='navbar-nav flex-row flex-wrap ms-md-auto'>
-        <h2 className='justify-center p-1 text-light'>Current Project Name</h2>
+        <h4 className='justify-center p-1 text-light'>Current Project Name</h4>
     </ul>
     <form className="form-inline my-2 my-lg-0">
       <input className="form-control mr-sm-2" type="search" placeholder="Search Tasks" />

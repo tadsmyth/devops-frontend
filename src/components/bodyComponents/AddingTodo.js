@@ -1,12 +1,17 @@
 import React, {useState, useEffect} from 'react';
-import TodoForm from './TodoForm'
+import TodoForm from '../todoModal/TodoForm'
 import dataContext from '../Context';
+import { Axios } from 'axios';
 // const url = "http://localhost:4000/devops/"
+// const url = "http://localhost:4000/user/"
+// const url = "http://localhost:4000/task/"
 
 function AddingTodo({todos, completeTodo}) {
     const [edit, setEdit] = useState({
         value: ''
     })
+    const [task, setTask] = useState([])
+    
     // const [dev, setDev] = useState([])
 
     // useEffect(() => {
@@ -20,13 +25,13 @@ function AddingTodo({todos, completeTodo}) {
 
     return todos.map((todo, index) => (
         <>
-            <div className={todo.isComplete ? 'todoComplete' : 'addingTodo'} key={index}>
+            {/* <div className={todo.isComplete ? 'todoComplete' : 'addingTodo'} key={index}>
             
             <div key={todo.name} onClick={() => completeTodo(todo.text)}>
             {todo.text}
             </div>
 
-            </div>
+            </div> */}
         </>
     ));
 }

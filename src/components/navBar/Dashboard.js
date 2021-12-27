@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import AddingTodo from '../bodyComponents/AddingTodo'
 import CreatingTasks from '../bodyComponents/CreatingTasks'
-import TodoForm from '../bodyComponents/TodoForm'
+import TodoForm from '../todoModal/TodoForm'
 import dataContext from '../Context'
 import TaskCard from '../bodyComponents/TaskCard';
 import CurrentProject from '../CurrentProject';
@@ -15,18 +15,21 @@ function Dashboard(props) {
     useEffect( () => {
 
     if(datum.projects.length){
+        console.log("Datum projects0", datum.projects[0]);
+        // current project ID is a useState for the current active project - currently hard coded to first project in the array
         let currentProjID = datum.projects[0]._id
         const tempArr = datum.tasks.filter(task => task.projectID === currentProjID)
         setProjectTasks(tempArr)        
         }
     }, [datum])
    
-    console.log(projectTasks[0]?.projectID)
+    console.log(projectTasks[0]?.name)
     
     return (
         <div className='bg-secondary'>
+            <CurrentProject />
             {/* div for the buttons bar at the top */}
-            <div className='d-flex flex-row-reverse p-4'>
+            <div className='d-flex flex-row-reverse mt-5 pt-3 px-2'>
                 <CreatingTasks />
             </div>
             
@@ -36,7 +39,7 @@ function Dashboard(props) {
                 {projectTasks.length >0 ? 
                 projectTasks.map((task) => {console.log("taskoutside:", task)
                     return <TaskCard task={task} / >}) 
-                : <TaskCardNone />}
+                : null}
                 </div>
             </div>
 
@@ -45,7 +48,7 @@ function Dashboard(props) {
                 {projectTasks.length >0 ? 
                 projectTasks.map((task) => {console.log("taskoutside:", task)
                     return <TaskCard task={task} / >}) 
-                : <TaskCardNone />}
+                : null}
             </div>
 
                 {/* In Review */}
@@ -53,7 +56,7 @@ function Dashboard(props) {
                 {projectTasks.length >0 ? 
                 projectTasks.map((task) => {console.log("taskoutside:", task)
                     return <TaskCard task={task} / >}) 
-                : <TaskCardNone />}
+                : null}
             </div>
                 
         </div>

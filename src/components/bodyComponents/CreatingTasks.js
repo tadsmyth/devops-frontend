@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import TodoForm from './TodoForm'
-import AddingTodo from './AddingTodo'
+import TodoForm from '../todoModal/TodoForm'
+import AddingTodo from '../bodyComponents/AddingTodo'
 
 function CreatingTasks() {
     const [todos, setTodos] = useState([]);
