@@ -23,7 +23,8 @@ function EditModal(props) {
     const handleSubmit2 = e => {
       e.preventDefault()
     
-      axios.post('http://localhost:4000/task', task)
+      console.log("Modal taskId",props.taskId);
+      axios.put(`http://localhost:4000/task/${props.taskId}`)
         .then(res => {
           console.log(res)
           console.log(res.data)
@@ -39,7 +40,7 @@ function EditModal(props) {
         centered
       >
         <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">New Task</Modal.Title>
+          <Modal.Title id="contained-modal-title-vcenter">Edit Task</Modal.Title>
         </Modal.Header>
         <form onSubmit={handleSubmit2}>
           <Modal.Body>

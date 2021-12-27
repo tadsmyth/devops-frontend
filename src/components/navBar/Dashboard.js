@@ -19,7 +19,9 @@ function Dashboard(props) {
         // current project ID is a useState for the current active project - currently hard coded to first project in the array
         let currentProjID = datum.projects[0]._id
         const tempArr = datum.tasks.filter(task => task.projectID === currentProjID)
-        setProjectTasks(tempArr)        
+        // setProjectTasks(tempArr)   
+        setProjectTasks([datum.projects[0]])   
+
         }
     }, [datum])
    
