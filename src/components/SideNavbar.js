@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {BsFillArrowLeftSquareFill, BsSearch,BsFillArrowRightSquareFill} from 'react-icons/bs'
 import '../App.css'
 import Today from '../components/navBar/Today'
+import Adding from '../components/todoModal/Adding'
 import Dashboard from '../components/navBar/Dashboard'
 
 
@@ -69,7 +70,11 @@ function Navbar(props) {
                 <FaCheck size={22} className='m-2' />
                        Completed
                 </li>
-            </Link> 
+            </Link>
+            <li class="list-group-item list-group-item-action active p-3">
+            <Adding size={22} className='m-2' />
+
+            </li>
                 
                
                 

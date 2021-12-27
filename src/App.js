@@ -12,6 +12,7 @@ import Today from './components/navBar/Today'
 import Upcoming from './components/navBar/Upcoming'
 import Completed from './components/navBar/Completed'
 import Settings from './components/navBar/Settings'
+import TaskCard from './components/bodyComponents/TaskCard'
 
 function App() {
 
