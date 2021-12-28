@@ -11,7 +11,6 @@ import {CgInfinity} from 'react-icons/cg'
 
 function Header(props) {
 
-
     return (
 <>
 <nav className="header navbar flex-row flex-wrap navbar-expand-lg bg-primary navbar-dark py-1 fixed-top container-fluid">
@@ -31,39 +30,47 @@ function Header(props) {
   <div className="collapse navbar-collapse" id="navbarToggler">
     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
       <Link to="/">
-                <li className="nav-item active">
-                <a className="nav-link m-2" href="#">
-                <span className="sr-only"><BsHouse size={30}/></span>
-                       </a>
-                </li>
-            </Link>
+        <li className="nav-item active">
+        <a className="nav-link m-2" href="#">
+        <span className="sr-only"><BsHouse size={30}/></span>
+                </a>
+        </li>
+      </Link>
 
             {/* Change later for message modal */}
       <Link to="/today">
-                <li className="nav-item">
-                <a className="nav-link m-2" href="#">
-                <BsBell size={30}/>
-                       </a>
-                </li>
-            </Link> 
+        <li className="nav-item">
+        <a className="nav-link m-2" href="#">
+        <BsBell size={30}/>
+                </a>
+        </li>
+      </Link> 
+
       <Link to="/settings">
-                <li className="nav-item">
-                <a className="nav-link m-2" href="#">
-                <BsGear size={30}/>
-                       </a>
-                </li>
-            </Link>
-            <li>
-                  <Adding />
-            </li>
+        <li className="nav-item">
+        <a className="nav-link m-2" href="#">
+        <BsGear size={30}/>
+                </a>
+        </li>
+      </Link>
+
+      <li>
+        <Adding />
+      </li>
+
     </ul>
+
+
     <ul className='navbar-nav flex-row flex-wrap ms-md-auto'>
         <h4 className='justify-center p-1 text-light'>Current Project Name</h4>
     </ul>
+
     <form className="form-inline my-2 my-lg-0">
       <input className="form-control mr-sm-2" type="search" placeholder="Search Tasks" />
+
     </form>
       <button className="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+
   </div>
 </nav>
     </>

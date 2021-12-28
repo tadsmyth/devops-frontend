@@ -2,17 +2,14 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SideNavbar from './components/SideNavbar';
 import Header from './components/Header';
-import CreatingTasks from './components/bodyComponents/CreatingTasks';
 import dataContext from './components/Context';
 import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
-import Fetch from './components/Fetch';
 import {useState, useEffect} from 'react'
 import Dashboard from './components/navBar/Dashboard'
 import Today from './components/navBar/Today'
 import Upcoming from './components/navBar/Upcoming'
 import Completed from './components/navBar/Completed'
 import Settings from './components/navBar/Settings'
-import TaskCard from './components/bodyComponents/TaskCard'
 
 function App() {
 
@@ -47,32 +44,24 @@ useEffect(() => {
       console.log("Task/ToDo Data:", tasks)
       })
       .catch(console.err);
-
   }, [])
 
   return (
     <div className="App">
       <dataContext.Provider value={{devs, setDevs, projects, setProjects, tasks, setTasks, currentProject, setCurrentProject}}>
-          {/* <Fetch /> */}
           
-          {/* {projects ? projects.map((p) => <p>{p.name}</p>) : null} */}
-          <Header />
-          {/* isnt working not sure why */}
-          {/* <SideNavbar /> */}
-          {/* <Route exact path="/" /> */}
-          <body className='main-body'>
-         <SideNavbar />
-         {/* <Dashboard /> */}
+        <Header />
+          
+        <body className='main-body'>
+          <SideNavbar />
 
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/today" component={Today} />
           <Route exact path="/upcoming" component={Upcoming} />
           <Route exact path="/settings" component={Settings} />
           <Route exact path="/completed" component={Completed} />
-          </body>
-          
-          {/* <CreatingTasks /> */}
-          
+        </body>
+         
       </dataContext.Provider>
     </div>
   );

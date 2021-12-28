@@ -24,7 +24,7 @@ function Navbar(props) {
     {/* wrapper contains sidebar */}
     <div className='sidebar'>
         <div className='user'>
-           <a href='users'> <img src='https://randomuser.me/api/portraits/men/11.jpg' alt='profile pic'/></a>
+            <a href='users'> <img src='https://randomuser.me/api/portraits/men/11.jpg' alt='profile pic'/></a>
             <h3>John Smith</h3>
         </div>
 
@@ -37,47 +37,48 @@ function Navbar(props) {
                     </a> */}
                     {/* isnt working not sure why */}
                     
-                <Link to="/" className="list-group-item list-group-item-action active p-3">
+            <Link to="/" className="list-group-item list-group-item-action active p-3">
                 <MdOutlineSpaceDashboard size={25} className='m-2'/>
-                       Dashboard
+                Dashboard
             </Link>
 
-                    <Link to="/today">
-                <li class="list-group-item list-group-item-action active p-3">
-                <FaRegCalendar size={22} className='m-2'/>
-                       Today
-                </li>
-            </Link> 
-                    <Link to="/upcoming">
-                <li class="list-group-item list-group-item-action active p-3">
-                <FaRegCalendarAlt size={22} className='m-2'/>
-                       Upcoming
-                </li>
-            </Link> 
-                    <Link to="/settings">
-                <li class="list-group-item list-group-item-action active p-3">
-                <FaCog size={22} className='m-2' />
-                       Settings
-                </li>
-            </Link> 
-                    <a href="#" class="list-group-item list-group-item-action active p-3">
-                       <FaPlus size={22} className='m-2' />
-                        New Project
-                    </a>
-                    
-                    <Link to="/completed">
-                <li class="list-group-item list-group-item-action active p-3">
-                <FaCheck size={22} className='m-2' />
-                       Completed
-                </li>
-            </Link>
+            <Link to="/today">
             <li class="list-group-item list-group-item-action active p-3">
-            <Adding size={22} className='m-2' />
-
+                <FaRegCalendar size={22} className='m-2'/>
+                Today
             </li>
-                
-               
-                
+            </Link> 
+            
+            <Link to="/upcoming">
+            <li class="list-group-item list-group-item-action active p-3">
+                <FaRegCalendarAlt size={22} className='m-2'/>
+                Upcoming
+            </li>
+            </Link> 
+            
+            <Link to="/settings">
+            <li class="list-group-item list-group-item-action active p-3">
+                <FaCog size={22} className='m-2' />
+                Settings
+            </li>
+            </Link> 
+            
+            <a href="#" class="list-group-item list-group-item-action active p-3">
+                <FaPlus size={22} className='m-2' />
+                New Project
+            </a>
+                    
+            <Link to="/completed">
+            <li class="list-group-item list-group-item-action active p-3">
+                <FaCheck size={22} className='m-2' />
+                Completed
+            </li>
+            </Link>
+            
+            <li class="list-group-item list-group-item-action active p-3">
+                <Adding size={22} className='m-2' />
+            </li>
+                                
         </ul>
 
     </div>
@@ -127,12 +128,6 @@ function Navbar(props) {
                 </div> */}
             {/* adding the project components will go here I have to add them */}
             {/* </div> */}
-
-
-
-
-
-
 
 </>
 

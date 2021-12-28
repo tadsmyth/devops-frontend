@@ -9,14 +9,9 @@ const CurrentProject = () => {
     useEffect( () => {
        if(datum.projects.length)
             { let currentProjID = datum.projects[0]._id
-            console.log("Datum from CurrP:", datum)
-            console.log("Projs:", datum.projects, " || Current:", currentProjID)
-            console.log("Devs:", datum.devs)
-            console.log("tasks:", datum.tasks)}
+            }
             console.log("clicked on", datum.projects.id);
     }, [datum])
-
-
 
 
   return (
