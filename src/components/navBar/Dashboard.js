@@ -1,7 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import AddingTodo from '../bodyComponents/AddingTodo'
 import CreatingTasks from '../bodyComponents/CreatingTasks'
-import TodoForm from '../todoModal/TodoForm'
 import dataContext from '../Context'
 import TaskCard from '../bodyComponents/TaskCard';
 import CurrentProject from '../CurrentProject';
@@ -11,17 +9,15 @@ function Dashboard(props) {
     let datum = useContext( dataContext )
     let [projectTasks, setProjectTasks] = useState([])
      
-  
     useEffect( () => {
 
     if(datum.projects.length){
         console.log("Datum projects0", datum.projects[0]);
         // current project ID is a useState for the current active project - currently hard coded to first project in the array
-        let currentProjID = datum.projects[0]._id
+        let currentProjID = datum.projects[0]._id //replace with datum.currentProject when currentProject useStateworks
         const tempArr = datum.tasks.filter(task => task.projectID === currentProjID)
         // setProjectTasks(tempArr)   
-        setProjectTasks([datum.projects[0]])   
-
+        setProjectTasks([datum.projects[0]]) //replace with tempARR when currentProject useStateworks
         }
     }, [datum])
    
@@ -38,27 +34,27 @@ function Dashboard(props) {
                 {/* Not Started */}
             <div class="container fluid p-5 mt-5 bg-danger w-25 mw-75">
                 <div class="card-columns">
-                {projectTasks.length >0 ? 
-                projectTasks.map((task) => {console.log("taskoutside:", task)
-                    return <TaskCard task={task} / >}) 
-                : null}
+                    {projectTasks.length >0 ? 
+                        projectTasks.map((task) => {console.log("taskoutside:", task)
+                        return <TaskCard task={task} / >}) 
+                        : <TaskCardNone />}
                 </div>
             </div>
 
                 {/* In Progress */}
             <div class="container p-5 mt-5 bg-warning w-25 mw-50">
                 {projectTasks.length >0 ? 
-                projectTasks.map((task) => {console.log("taskoutside:", task)
+                    projectTasks.map((task) => {console.log("taskoutside:", task)
                     return <TaskCard task={task} / >}) 
-                : null}
+                    : <TaskCardNone />}
             </div>
 
                 {/* In Review */}
             <div class="container p-5 mt-5 bg-success w-25 mw-50">
                 {projectTasks.length >0 ? 
-                projectTasks.map((task) => {console.log("taskoutside:", task)
+                    projectTasks.map((task) => {console.log("taskoutside:", task)
                     return <TaskCard task={task} / >}) 
-                : null}
+                    : <TaskCardNone />}
             </div>
                 
         </div>
