@@ -46,7 +46,7 @@ function Navbar(props) {
               <div className="sidebar">
                 <div className="user">
                     <div onClick={() => setInactive(!inactive)} className="toggleBtn">
-                        {inactive ? <BsFillArrowRightSquareFill /> : <BsFillArrowLeftSquareFill />}
+                        {inactive ? <AiOutlineMenu /> : <GrClose />}
                     </div>
                 {/* <BsFillArrowRightSquareFill /> */}
                   {/* <a href="users">
