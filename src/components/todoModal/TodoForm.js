@@ -22,6 +22,7 @@ function TodoForm(props) {
           name: e.target.value,
         //   tasks: {TodoModal: e.target.value}
         }))
+        setProject('')
       }
       
     // const handleChange = e => {
@@ -44,6 +45,7 @@ function TodoForm(props) {
             axios.post('http://localhost:4000/devops', project)
               .then(res => {
                 datum.setProjects([...datum.projects, res])
+                console.log(datum.projects)
                 console.log(res.data)
               })
               // .then(() => {

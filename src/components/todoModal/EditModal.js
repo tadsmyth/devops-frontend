@@ -5,6 +5,7 @@ import axios from 'axios'
 import Modal from "react-bootstrap/Modal";
 import CloseButton from "react-bootstrap/CloseButton";
 
+
 function EditModal(props) {
 
     const [task, setTask] = useState(
@@ -29,6 +30,8 @@ function EditModal(props) {
           console.log(res)
           console.log(res.data)
         })
+
+        setTask('')
     }
 
     return (
@@ -66,6 +69,7 @@ function EditModal(props) {
             </Form.Group>
           </Modal.Body>
           <Button type="submit">Edit Task</Button>
+          
         </form>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
