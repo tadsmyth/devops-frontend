@@ -24,8 +24,10 @@ function Dashboard(props) {
     console.log(projectTasks[0]?.name)
     
     return (
+        <>
+        <div className="contain">
         <div className='bg-secondary'>
-            <CurrentProject />
+            {/* <CurrentProject /> */}
             {/* div for the buttons bar at the top */}
             <div className='d-flex flex-row-reverse mt-5 pt-3 px-2'>
                 <CreatingTasks />
@@ -40,8 +42,8 @@ function Dashboard(props) {
                         : <TaskCardNone />}
                 </div>
             </div>
-
-                {/* In Progress */}
+            
+            {/* In Progress */}
             <div class="container p-5 mt-5 bg-warning w-25 mw-50">
                 {projectTasks.length >0 ? 
                     projectTasks.map((task) => {console.log("taskoutside:", task)
@@ -49,15 +51,16 @@ function Dashboard(props) {
                     : <TaskCardNone />}
             </div>
 
-                {/* In Review */}
-            <div class="container p-5 mt-5 bg-success w-25 mw-50">
+{/* In Review */}
+<div class="container p-5 mt-5 bg-success w-25 mw-50">
                 {projectTasks.length >0 ? 
                     projectTasks.map((task) => {console.log("taskoutside:", task)
                     return <TaskCard task={task} / >}) 
                     : <TaskCardNone />}
             </div>
-                
-        </div>
-    );
-}
-export default Dashboard;
+                </div>
+                </div>
+                </>
+                );
+            }
+            export default Dashboard;
