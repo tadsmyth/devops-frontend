@@ -50,6 +50,7 @@ const handleSubmit2 = e => {
       console.log(res)
       console.log(res.data)
     })
+    setTask('')
 }
 
   return (

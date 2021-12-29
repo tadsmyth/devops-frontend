@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import EditModal from '../todoModal/EditModal';
+import Completed from '../todoModal/Completed';
 
 const TaskCard = ( {task} ) => {
   // console.log("task within taskcard", task)
@@ -60,6 +61,7 @@ const TaskCard = ( {task} ) => {
         taskId= {task._id}
       />
         <button onclick={handleDelete}>Delete</button>
+        <Completed />
       </div>
     </div>
   );
