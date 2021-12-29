@@ -19,14 +19,13 @@ function Completed(props) {
 
     return (
         <>
-        <div>
-            <input
-            completed={!completed}
-            onChange={handleChange} type="checkbox"></input>
-            <span>
-                Completed
-            </span>
-        </div>
+        <div class="form-check">
+  <input completed={!completed}
+            onChange={handleChange} class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+  <label class="form-check-label" for="flexCheckDefault">
+    Completed
+  </label>
+</div>
         </>
     );
 }
