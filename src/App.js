@@ -11,6 +11,7 @@ import Upcoming from './components/navBar/Upcoming'
 import Completed from './components/navBar/Completed'
 import Settings from './components/navBar/Settings'
 import Connection from './Connection'
+import axios from 'axios';
 
 function App() {
 
@@ -41,8 +42,22 @@ useEffect(() => {
   //fetches tasks
   fetch(`${url}task`)
       .then((res) => res.json())
-      .then((res) => {setTasks(res)
+      .then((res) => {
+        const tasks = []
       console.log("Task/ToDo Data:", tasks)
+      //changes all unassigned tasks to the first project
+      res.map( (task) => {
+        if (task.projectID.length<20){
+          console.log("changed", task.name, "id:", task.projectID, projects[0]._id)
+          task.projectID = projects[0]._id
+          axios.put(`${url}${task._id}`)
+        }
+        tasks.push(task)  
+      } )
+      console.log("tasks populated in the useContext:", tasks)
+      //commenting and uncommenting the above log might fix/cause an error
+      //if errors occur remove map until here. keep setTasks(tasks)
+      setTasks(tasks) 
       })
       .catch(console.err);
   }, [])

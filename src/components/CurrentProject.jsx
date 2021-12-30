@@ -29,7 +29,6 @@ const CurrentProject = () => {
       console.log("currentProject:" , datum.currentProject)
     }
   
-
   return (
     <div>
       <Dropdown>

@@ -4,35 +4,49 @@ import Form from "react-bootstrap/Form";
 import axios from 'axios'
 import Modal from "react-bootstrap/Modal";
 import CloseButton from "react-bootstrap/CloseButton";
-
+import Connection from '../../Connection'
+import EditTask_ProjectID from './EditTask-ProjectID.jsx'
+import EditTaskStatus from './EditTaskStatus';
+import Completed from '../todoModal/Completed';
 
 function EditModal(props) {
+  const url = Connection
+  const [task, setTask] = useState(
+      {
+        name: '',
+        completed: false
+    })
+    
+  const handleTaskNameChange = e => {
+    setTask(previousState => ({
+      ...previousState,
+      name: e.target.value
+    }))
+  }
 
-    const [task, setTask] = useState(
-        {
-          name: '',
-          completed: false
+   const handleDelete = e => {
+    e.preventDefault()
+
+  axios.delete(`${url}task`, task)
+    .then(res => {
+      console.log(res)
+      console.log(res.data)
+    })
+  }
+    
+  const handleTaskSubmit
+   = e => {
+    e.preventDefault()
+  
+    console.log("Modal taskId",props.taskId);
+    axios.put(`${url}${props.taskId}`)
+      .then(res => {
+        console.log(res)
+        console.log(res.data)
       })
-    
-    const handleChange2 = e => {
-      setTask(previousState => ({
-        ...previousState,
-        name: e.target.value
-      }))
-    }
-    
-    const handleSubmit2 = e => {
-      e.preventDefault()
-    
-      console.log("Modal taskId",props.taskId);
-      axios.put(`http://localhost:4000/task/${props.taskId}`)
-        .then(res => {
-          console.log(res)
-          console.log(res.data)
-        })
 
-        setTask('')
-    }
+      setTask('')
+  }
 
     return (
         <>
@@ -45,12 +59,13 @@ function EditModal(props) {
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">Edit Task</Modal.Title>
         </Modal.Header>
-        <form onSubmit={handleSubmit2}>
+        <form onSubmit={handleTaskSubmit
+        }>
           <Modal.Body>
             <input
               type="text"
               name="task"
-              onChange={handleChange2}
+              onChange={handleTaskNameChange}
               placeholder="Task Name"
             />
 
@@ -63,12 +78,18 @@ function EditModal(props) {
                 as="textarea"
                 name="description"
                 placeholder="Description"
-                onChange={handleSubmit2}
+                onChange={handleTaskSubmit}
                 rows={3}
               />
             </Form.Group>
+
+            <EditTask_ProjectID />
+            <EditTaskStatus task={task} setTask={setTask}/>
+
           </Modal.Body>
-          <Button type="submit">Edit Task</Button>
+          <Button type="submit">Update Task</Button>
+          <Completed />
+          <button onclick={handleDelete}>Delete</button>
           
         </form>
         <Modal.Footer>

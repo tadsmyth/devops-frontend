@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import EditModal from '../todoModal/EditModal';
-import Completed from '../todoModal/Completed';
 import Connection from '../../Connection'
 
 const TaskCard = ( {task} ) => {
@@ -24,15 +23,7 @@ const TaskCard = ( {task} ) => {
   //   })
   // }
 
-  const handleDelete = e => {
-    e.preventDefault()
-
-  axios.delete(`${url}task`, task)
-    .then(res => {
-      console.log(res)
-      console.log(res.data)
-    })
-  }
+ 
 
   const handleEdit = e => {
     e.preventDefault()
@@ -52,15 +43,16 @@ const TaskCard = ( {task} ) => {
       <div class="card-body">
         {console.log(task)}
         <h5 class="card-title">{task?.name}</h5>
-        <p value= "task.name" class="card-text">This is task is from {task?.name}.</p>
+        <p value= "task.name" class="card-text">{task?.description}.</p>
+        <p> Current Status: {task?.status}</p>
         <button className="nav-item" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
         <EditModal
         show={modalShow}
         onHide={() => setModalShow(false)}
         taskId= {task._id}
         />
-        <button onclick={handleDelete}>Delete</button>
-        <Completed />
+        
+        
       </div>
     </div>
   );
