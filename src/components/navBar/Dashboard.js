@@ -12,16 +12,14 @@ function Dashboard(props) {
     useEffect( () => {
 
     if(datum.projects.length){
-        console.log("Datum projects0", datum.projects[0]);
+        console.log("Active projects", datum.currentProject);
         // current project ID is a useState for the current active project - currently hard coded to first project in the array
-        let currentProjID = datum.projects[0]._id //replace with datum.currentProject when currentProject useStateworks
+        let currentProjID = datum.currentProject._id //replace with datum.currentProject when currentProject useStateworks
         const tempArr = datum.tasks.filter(task => task.projectID === currentProjID)
-        // setProjectTasks(tempArr)   
-        setProjectTasks([datum.projects[0]]) //replace with tempARR when currentProject useStateworks
+        setProjectTasks(tempArr)   
+        // setProjectTasks([datum.projects[0]]) //replace with tempARR when currentProject useStateworks
         }
     }, [datum])
-   
-    console.log(projectTasks[0]?.name)
     
     return (
         <>
@@ -37,7 +35,7 @@ function Dashboard(props) {
             <div class="container fluid p-5 mt-5 bg-danger w-25 mw-75">
                 <div class="card-columns">
                     {projectTasks.length >0 ? 
-                        projectTasks.map((task) => {console.log("taskoutside:", task)
+                        projectTasks.map((task) => {
                         return <TaskCard task={task} / >}) 
                         : <TaskCardNone />}
                 </div>
@@ -46,7 +44,7 @@ function Dashboard(props) {
             {/* In Progress */}
             <div class="container p-5 mt-5 bg-warning w-25 mw-50">
                 {projectTasks.length >0 ? 
-                    projectTasks.map((task) => {console.log("taskoutside:", task)
+                    projectTasks.map((task) => {
                     return <TaskCard task={task} / >}) 
                     : <TaskCardNone />}
             </div>
@@ -54,7 +52,7 @@ function Dashboard(props) {
 {/* In Review */}
 <div class="container p-5 mt-5 bg-success w-25 mw-50">
                 {projectTasks.length >0 ? 
-                    projectTasks.map((task) => {console.log("taskoutside:", task)
+                    projectTasks.map((task) => {
                     return <TaskCard task={task} / >}) 
                     : <TaskCardNone />}
             </div>
@@ -63,4 +61,4 @@ function Dashboard(props) {
                 </>
                 );
             }
-            export default Dashboard;
+export default Dashboard;

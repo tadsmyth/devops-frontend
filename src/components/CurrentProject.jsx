@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 const CurrentProject = () => {
 
   let datum = useContext( dataContext )
-    useEffect( () => {
-       if(datum.projects.length)
-            { let currentProjID = datum.projects[0]._id
-            }
-            console.log("clicked on", datum.projects.id);
-    }, [datum])
+    // useEffect( () => {
+    //    if(datum.projects.length)
+    //         { datum.setCurrentProject = datum.projects[0]._id
+    //         }
+    //         console.log("initial project:", datum.projects.id);
+    // }, [])
 
 
 // Create func called setCurrentProject and get the ID 
@@ -24,6 +24,10 @@ const CurrentProject = () => {
 //   }, )
 
 // }
+    function setCurrentProject(project) {
+      datum.setCurrentProject(project)
+      console.log("currentProject:" , datum.currentProject)
+    }
   
 
   return (
@@ -35,9 +39,15 @@ const CurrentProject = () => {
 
           <Dropdown.Menu>
               {/* <Dropdown.Item href="#">Project 1</Dropdown.Item> */}
-              {datum.projects.map( project => <Link to={`/${project._id}`}><Dropdown.Item onClick={ datum.setCurrentProject (project._id) } href='#'>{project.name}</Dropdown.Item></Link> )}
+              {datum.projects.map( (project) => 
+                <Link to={`/devops/${project._id}`}>
+                  <Dropdown.Item onClick={ () =>setCurrentProject(project)} href='#'>        
+                    {project.name}
+                  </Dropdown.Item>
+                </Link> 
+                )}
               {/* Returning undefined... */}
-          {console.log(datum.CurrentProject._id)}
+          
    {/* Need to add the current projects to the dropdown menu. It's rendering the projects so what do I need to do to it?  */}
    {/* Maybe on click just use setCurrentProject to update the state? */}
 

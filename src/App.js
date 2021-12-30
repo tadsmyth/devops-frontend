@@ -10,6 +10,7 @@ import Today from './components/navBar/Today'
 import Upcoming from './components/navBar/Upcoming'
 import Completed from './components/navBar/Completed'
 import Settings from './components/navBar/Settings'
+import Connection from './Connection'
 
 function App() {
 
@@ -18,7 +19,7 @@ const [projects, setProjects] = useState([])
 const [tasks, setTasks] = useState([])
 const [currentProject, setCurrentProject] = useState('')
 
-const url = "http://localhost:4000/"
+const url = Connection
 
 useEffect(() => {
   //fetches projects
