@@ -10,12 +10,13 @@ function Dashboard(props) {
     
     useEffect( () => {
 
-    if(datum.projects.length){
+    if(datum.tasks.length >0){
         console.log("Current active project", datum.currentProject);
         // current project ID is a useState for the current active project - currently hard coded to first project in the array
         let currentProjID = datum.currentProject._id //replace with datum.currentProject when currentProject useStateworks
         const tempArr = datum.tasks.filter(task => task.projectID === currentProjID)
-        
+        console.log("currentProjID:", currentProjID, datum.currentProject._id)
+        console.log("tempArr", tempArr)
         // setProjectTasks([datum.projects[0]]) //replace with tempARR when currentProject useStateworks
         
         let tasksNotStarted = []
