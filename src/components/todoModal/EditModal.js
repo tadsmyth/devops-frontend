@@ -71,25 +71,26 @@ function EditModal(props) {
           <form onSubmit={handleTaskSubmit}>
           
           <Modal.Body>
+            <p>Task Name: {datum.currentTask.name}</p>
             <input
               type="text"
               name="task"
-              // onChange={handleTaskNameChange}
-              placeholder="Task Name"
-              value = {datum.currentTask.name}
+              onChange={handleTaskNameChange}
+              placeholder={datum.currentTask.name}
             />
 
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
+              <p>Description: </p>
+              <p>{datum.currentTask.description}</p>
               <Form.Control
                 className="Description"
                 as="textarea"
                 name="description"
-                placeholder="Description"
-                value = {datum.currentTask.description}
-                // onChange={handleTaskSubmit}
+                placeholder={datum.currentTask.description}
+                onChange={handleTaskSubmit}
                 rows={3}
               />
             </Form.Group>

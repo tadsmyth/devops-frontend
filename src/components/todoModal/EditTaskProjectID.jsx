@@ -4,9 +4,10 @@ import dataContext from '../Context';
 const EditTaskProjectID = () => {
   const datum = useContext(dataContext)
   return (
-    <input type="text" name="projectID" placeholder='Project ID' 
-    value={datum.currentTask.projectID} />
-      
+    <>
+    <p>Current ID: {datum.currentTask.projectID}</p>
+    <input type="text" name="projectID" placeholder={datum.currentTask.projectID} />
+    </>  
   );
 };
 
