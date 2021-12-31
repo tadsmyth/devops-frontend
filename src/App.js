@@ -50,17 +50,17 @@ useEffect(() => {
           console.log("Task/ToDo Data:", tasks)
           //changes all unassigned tasks to the first project
           res.map( (task) => {
-            console.log("mapping task:", task)
+            // console.log("mapping task:", task)
             if (task.length>0 && task.projectID.length<20){
               console.log("changed", task.name, "id:", task.projectID, projects[0]?._id)
               task.projectID = projects[0]._id
               axios.put(`${url}task/${task._id}`, task)
             }
             allTasks.push(task)
-            console.log("alltasks mapped", allTasks)  
+            console.log("alltasks mapped", allTasks)
           } )
 
-          console.log("tasks populated in the useContext:", tasks)
+          // console.log("tasks populated in the useContext:", tasks)
           //commenting and uncommenting the above log might fix/cause an error
           //if errors occur remove map until here. keep setTasks(tasks)
           setTasks(allTasks)

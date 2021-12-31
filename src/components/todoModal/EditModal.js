@@ -105,7 +105,7 @@ function EditModal(props) {
           
 
             <Modal.Footer>
-              <button onclick={handleDelete}>Delete</button>
+              <button className="button" onclick={handleDelete} >Delete</button>
               <Button type="submit" onSubmit={handleTaskSubmit}>Update Task</Button>
               <Completed />
               <Button onClick={props.onHide}>Close</Button>

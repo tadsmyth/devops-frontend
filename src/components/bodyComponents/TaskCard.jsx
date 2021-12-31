@@ -41,22 +41,30 @@ const TaskCard = ( {task} ) => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
-      <div class="">
-        <div class="">
-        
-        <h5 class="title">{task?._id}</h5>
-        <p value= "task.name" class="description">This is task is from {task?.name}.</p>
-        <button className="button" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
-        <EditModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-        onClick={datum.setCurrentTask(task)}
-        taskId= {task._id}
-        />
-        
-        
-      </div>
+    <div class="card">
+    <div class="card-body">
+      
+      <h5 class="title">{task?.name}</h5>
+      <p value= "task.name" class="description">Desc: {task?.description}.</p>
+      <p> Current Status: {task?.status}</p>
+      <p> Developers: 
+          <br />
+          {task.devs.map( (dev) => {
+            return <p>{dev}</p>
+            
+          })}
+      </p>
+      <button className="button" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
+      <EditModal
+      show={modalShow}
+      onHide={() => setModalShow(false)}
+      onClick={datum.setCurrentTask(task)}
+      taskId= {task._id}
+      />
+      
+      
     </div>
+  </div>
   );
 };
 
