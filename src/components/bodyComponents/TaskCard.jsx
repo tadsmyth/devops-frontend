@@ -1,18 +1,18 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
 import EditModal from '../todoModal/EditModal';
-import Completed from '../todoModal/Completed';
+import Connection from '../../Connection'
+import dataContext from '../Context';
 
 const TaskCard = ( {task} ) => {
-  // console.log("task within taskcard", task)
+  const url = Connection
+  const datum = useContext(dataContext)
   const [taskEdit, setTaskEdit] = useState(
     {
       name: task.name,
       description: task.description,
       completed: false
   })
-
-
 
   // const getData = e => {
   //   e.preventDefault()
@@ -25,24 +25,16 @@ const TaskCard = ( {task} ) => {
   //   })
   // }
 
-  const handleDelete = e => {
-    e.preventDefault()
-
-  axios.delete('http://localhost:4000/task', task)
-    .then(res => {
-      console.log(res)
-      console.log(res.data)
-    })
-  }
+ 
 
   const handleEdit = e => {
     e.preventDefault()
 
-  axios.put(`http://localhost:4000/task/${task._id}`, task)
+  axios.put(`${url}task${task._id}`, task)
     .then(res => {
-      console.log(res)
-      console.log("task card", task._id);
-      console.log(res.data)
+      // console.log(res)
+      // console.log("task card", task._id);
+      // console.log(res.data)
     })
   }
   
@@ -52,16 +44,25 @@ const TaskCard = ( {task} ) => {
     <div class="card">
       <div class="card-body">
         
-        <h5 class="card-title">{task?._id}</h5>
-        <p value= "task.name" class="card-text">This is task is from {task?.name}.</p>
+        <h5 class="card-title">{task?.name}</h5>
+        <p value= "task.name" class="card-text">Desc: {task?.description}.</p>
+        <p> Current Status: {task?.status}</p>
+        <p> Developers: 
+            <br />
+            {task.devs.map( (dev) => {
+              return <p>{dev}</p>
+              
+            })}
+        </p>
         <button className="nav-item" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
         <EditModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        onClick={datum.setCurrentTask(task)}
         taskId= {task._id}
-      />
-        <button onclick={handleDelete}>Delete</button>
-        <Completed />
+        />
+        
+        
       </div>
     </div>
   );

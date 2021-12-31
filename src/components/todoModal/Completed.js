@@ -2,15 +2,17 @@ import React, {useState} from 'react';
 import axios from 'axios'
 import dataContext from '../Context'
 import { Children } from 'react/cjs/react.production.min';
+import Connection from '../../Connection'
 
 function Completed(props) {
     const [completed, setCompleted] = useState(false)
+    const url = Connection
     
     const handleChange = () => {
         setCompleted(!completed);
         console.log(completed);
         console.log("im clicked omg");
-        axios.put(`http://localhost:4000/task/${props.completed}`)
+        axios.put(`${url}${props.completed}`)
         .then(res => {
           console.log(res)
           console.log(res.data)
