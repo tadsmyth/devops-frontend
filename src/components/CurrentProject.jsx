@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import dataContext from './Context';
 import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './dashboard.css'
 
 const CurrentProject = () => {
 
@@ -21,9 +22,10 @@ const CurrentProject = () => {
     }
   
   return (
-    <div>
+    <>
+    <div className="dashHeader">
       <Dropdown>
-        <Dropdown.Toggle className='project-button' variant="success" id="dropdown-basic">
+        <Dropdown.Toggle className='projectDropBtn' variant="success" id="dropdown-basic">
           Projects
         </Dropdown.Toggle>
 
@@ -45,6 +47,7 @@ const CurrentProject = () => {
       </Dropdown>
 
     </div>
+    </>
   );
 };
 

@@ -41,20 +41,12 @@ const TaskCard = ( {task} ) => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
-    <div class="card">
-      <div class="card-body">
+      <div class="">
+        <div class="">
         
-        <h5 class="card-title">{task?.name}</h5>
-        <p value= "task.name" class="card-text">Desc: {task?.description}.</p>
-        <p> Current Status: {task?.status}</p>
-        <p> Developers: 
-            <br />
-            {task.devs.map( (dev) => {
-              return <p>{dev}</p>
-              
-            })}
-        </p>
-        <button className="nav-item" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
+        <h5 class="title">{task?._id}</h5>
+        <p value= "task.name" class="description">This is task is from {task?.name}.</p>
+        <button className="button" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
         <EditModal
         show={modalShow}
         onHide={() => setModalShow(false)}

@@ -1,7 +1,8 @@
-import React, {useContext} from 'react';
-import { BsBell, BsHouse, BsGear} from 'react-icons/bs'
+import React, {useState, useContext} from 'react';
+import { BsBell, BsHouse, BsGear, BsFillPersonPlusFill} from 'react-icons/bs'
 import {Link, Router} from 'react-router-dom'
 import Adding from './todoModal/Adding'
+import {BiDotsVerticalRounded, BiComment} from 'react-icons/bi'
 import CurrentProject from './CurrentProject'
 import dataContext from './Context'
 
@@ -11,6 +12,15 @@ import {CgInfinity} from 'react-icons/cg'
 
 function Header(props) {
   const datum = useContext(dataContext)
+
+  const [hover, setHover] = useState(false);
+        const onHover = () => {
+          setHover(!hover)
+        }
+        const [hover2, setHover2] = useState(false);
+        const onHover2 = () => {
+          setHover2(!hover2)
+        }
 
     return (
 <>
@@ -69,12 +79,22 @@ function Header(props) {
           ID: { datum.currentProject._id }
         </h4>
     </ul>
+    
+    <button
+        className='btn btn-sm btn-dark'
+        onMouseEnter={onHover}
+        onMouseLeave={onHover}
+        tabIndex='-3' >
+      { hover ? "Comments" : <BiComment /> }
+    </button>
 
-    <form className="form-inline my-2 my-lg-0">
-      <input className="form-control mr-sm-2" type="search" placeholder="Search Tasks" />
-
-    </form>
-      <button className="btn btn-dark my-2 my-sm-0" type="submit">Search</button>
+    <button
+        className='btn btn-sm btn-dark'
+        onMouseEnter={onHover2}
+        onMouseLeave={onHover2}
+        tabIndex='-3' >
+      { hover2 ? "Share" : <BsFillPersonPlusFill />}
+    </button>
 
   </div>
 </nav>
