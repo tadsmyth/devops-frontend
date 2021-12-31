@@ -30,9 +30,9 @@ const TaskCard = ( {task} ) => {
 
   axios.put(`${url}task${task._id}`, task)
     .then(res => {
-      // console.log(res)
-      // console.log("task card", task._id);
-      // console.log(res.data)
+      console.log(res)
+      console.log("task card", task._id);
+      console.log(res.data)
     })
   }
   
@@ -41,17 +41,10 @@ const TaskCard = ( {task} ) => {
   return (
     <div class="card">
       <div class="card-body">
-        
+        {console.log(task)}
         <h5 class="card-title">{task?.name}</h5>
-        <p value= "task.name" class="card-text">Desc: {task?.description}.</p>
+        <p value= "task.name" class="card-text">{task?.description}.</p>
         <p> Current Status: {task?.status}</p>
-        <p> Developers: 
-            <br />
-            {task.devs.map( (dev) => {
-              return <p>{dev}</p>
-              
-            })}
-        </p>
         <button className="nav-item" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
         <EditModal
         show={modalShow}

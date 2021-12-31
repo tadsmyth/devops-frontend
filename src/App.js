@@ -4,7 +4,7 @@ import SideNavbar from './components/SideNavbar';
 import Header from './components/Header';
 import dataContext from './components/Context';
 import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
-import {useState, useEffect, useContext} from 'react'
+import {useState, useEffect} from 'react'
 import Dashboard from './components/navBar/Dashboard'
 import Today from './components/navBar/Today'
 import Upcoming from './components/navBar/Upcoming'
@@ -21,7 +21,6 @@ const [tasks, setTasks] = useState([])
 const [currentProject, setCurrentProject] = useState('')
 
 const url = Connection
-const datum = useContext(dataContext)
 
 useEffect(() => {
   //fetches projects
@@ -44,21 +43,21 @@ useEffect(() => {
   fetch(`${url}task`)
       .then((res) => res.json())
       .then((res) => {
-        const allTasks = []
+        const tasks = []
       console.log("Task/ToDo Data:", tasks)
       //changes all unassigned tasks to the first project
       res.map( (task) => {
         if (task.projectID.length<20){
-          console.log("changed", task.name, "id:", task.projectID, projects[0]?._id)
+          console.log("changed", task.name, "id:", task.projectID, projects[0]._id)
           task.projectID = projects[0]._id
-          axios.put(`${url}task/${task._id}`, task)
+          axios.put(`${url}${task._id}`)
         }
-        allTasks.push(task)  
+        tasks.push(task)  
       } )
-      // console.log("tasks populated in the useContext:", tasks)
+      console.log("tasks populated in the useContext:", tasks)
       //commenting and uncommenting the above log might fix/cause an error
       //if errors occur remove map until here. keep setTasks(tasks)
-      setTasks(allTasks) 
+      setTasks(tasks) 
       })
       .catch(console.err);
   }, [])

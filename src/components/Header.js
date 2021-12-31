@@ -63,11 +63,7 @@ function Header(props) {
 
 
     <ul className='navbar-nav flex-row flex-wrap ms-md-auto'>
-        <h4 className='justify-center p-1 text-light'>
-          Project: {datum.currentProject.name}
-          <br />
-          ID: { datum.currentProject._id }
-        </h4>
+        <h4 className='justify-center p-1 text-light'>Project: {datum.currentProject.name}<br />{ datum.currentProject._id }</h4>
     </ul>
 
     <form className="form-inline my-2 my-lg-0">
