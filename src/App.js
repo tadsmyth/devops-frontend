@@ -19,6 +19,7 @@ const [devs, setDevs] = useState([])
 const [projects, setProjects] = useState([])
 const [tasks, setTasks] = useState([])
 const [currentProject, setCurrentProject] = useState('')
+const [currentTask, setCurrentTask] = useState([])
 
 const url = Connection
 const datum = useContext(dataContext)
@@ -70,7 +71,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <dataContext.Provider value={{devs, setDevs, projects, setProjects, tasks, setTasks, currentProject, setCurrentProject}}>
+      <dataContext.Provider value={{devs, setDevs, projects, setProjects, tasks, setTasks, currentProject, setCurrentProject, currentTask, setCurrentTask}}>
           
         <Header />
           

@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
 import EditModal from '../todoModal/EditModal';
 import Connection from '../../Connection'
+import dataContext from '../Context';
 
 const TaskCard = ( {task} ) => {
   const url = Connection
+  const datum = useContext(dataContext)
   const [taskEdit, setTaskEdit] = useState(
     {
       name: task.name,
@@ -56,6 +58,7 @@ const TaskCard = ( {task} ) => {
         <EditModal
         show={modalShow}
         onHide={() => setModalShow(false)}
+        onClick={datum.setCurrentTask(task)}
         taskId= {task._id}
         />
         

@@ -14,15 +14,6 @@ const CurrentProject = () => {
     // }, [])
 
 
-// Create func called setCurrentProject and get the ID 
-
-// const setCurrentProject = ()  => {
-
-//   let proj = useContext( dataContext )
-//   useEffect( () => {
-//     return datum.setCurrentProject._id
-//   }, )
-
 // }
     function setCurrentProject(project) {
       datum.setCurrentProject(project)
