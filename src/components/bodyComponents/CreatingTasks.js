@@ -30,7 +30,6 @@ function CreatingTasks() {
        
         <div>
             {/* Do you need an input field for this button to create task? - Tad */}
-        <button className='btn btn-dark btn-sm'>Create Task</button>
         {/* <h1>Adding the Todos</h1> */}
         </div>
         <TodoForm onSubmit={addTodos}/>

@@ -46,17 +46,18 @@ function Dashboard(props) {
     
     return (
         <>
-        <div className="contain">
-        <div className='bg-secondary'>
+        <div className="">
             {/* <CurrentProject /> */}
             {/* div for the buttons bar at the top */}
             <div className='d-flex flex-row-reverse mt-5 pt-3 px-2'>
                 <CreatingTasks />
             </div>
+        <div className="taskCards">
             
                 {/* Not Started */}
-            <div class="container fluid p-5 mt-5 bg-danger w-25 mw-75">
-                <div class="card-columns">
+            <div class="containers">
+                <div data-tilt data-tilt-glare data-tilt-max-glare="0.8" class="card">
+                <div class="content">
                     {projectTasks.length >0 ? 
                         projectTasks.map((task) => {
                         return <TaskCard task={task} />}) 
@@ -65,20 +66,25 @@ function Dashboard(props) {
             </div>
             
             {/* In Progress */}
-            <div class="container p-5 mt-5 bg-warning w-25 mw-50">
+            <div class="card">
+            <div class="content">
                 {projectTasks.length >0 ? 
                     projectTasks.map((task) => {
                     return <TaskCard task={task} />}) 
                     : <TaskCardNone />}
-            </div>
 
+            </div>
+            </div>
 {/* In Review */}
-<div class="container p-5 mt-5 bg-success w-25 mw-50">
+<div class="card">
+<div class="content">
                 {projectTasks.length >0 ? 
                     projectTasks.map((task) => {
                     return <TaskCard task={task} />}) 
                     : <TaskCardNone />}
             </div>
+            </div>
+                </div>
                 </div>
                 </div>
                 </>

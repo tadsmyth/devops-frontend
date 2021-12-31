@@ -1,8 +1,8 @@
 import React, {useState, useContext} from 'react';
 import dataContext from '../Context'
-import {BiDotsVerticalRounded, BiComment} from 'react-icons/bi'
+import {BiDotsVerticalRounded} from 'react-icons/bi'
+import {AiOutlineSearch} from 'react-icons/ai'
 import {FaRegFlag} from 'react-icons/fa'
-import {BsFillPersonPlusFill} from 'react-icons/bs'
 import CurrentProject from '../CurrentProject';
 import axios from 'axios'
 import TodoModal from './TodoModal';
@@ -30,15 +30,6 @@ function TodoForm(props) {
         
     // }
 
-        const [hover, setHover] = useState(false);
-        const onHover = () => {
-          setHover(!hover)
-        }
-        const [hover2, setHover2] = useState(false);
-        const onHover2 = () => {
-          setHover2(!hover2)
-        }
-
         const handleSubmit = e => {
             e.preventDefault()
           
@@ -63,38 +54,31 @@ function TodoForm(props) {
 
 return (
         <>
-        <div className="btn-group">
-    <CurrentProject />
+        <div className="dashHeader">
+          <CurrentProject />
             {/* The hover state is cool but it makes hitting the button kinda tricky when it changes size. Thoughts on removing? - Tad */}
-        <button
-        className='btn btn-sm btn-dark'
-        onMouseEnter={onHover}
-        onMouseLeave={onHover}
-        tabIndex='-3' >
-      { hover ? "Comments" : <BiComment /> }
-    </button>
 
-        <button
-        className='btn btn-sm btn-dark'
-        onMouseEnter={onHover2}
-        onMouseLeave={onHover2}
-        tabIndex='-3' >
-      { hover2 ? "Share" : <BsFillPersonPlusFill />}
-    </button>
+            <form className='projectForm' onSubmit={handleSubmit}>
 
-<form className='projectForm' onSubmit={handleSubmit}>
                 <input
                     type='text'
                     placeholder='Project Name'
                     // value={''}
                     button={setIcon}
                     name='text'
-                    className="todoInput"
+                    className="projectInputField"
                     onChange={handleChange}
                     />
-                <button className='btn btn-sm btn-dark' type="submit" onclick={resetFeild}>Add Project</button>
-            </form>
 
+                <button className='projectBtn' type="submit" onclick={resetFeild}>Add Project</button>
+
+            </form>
+            
+            <form className="taskForm">
+            <input className="taskInputField" type="search" placeholder="Search Tasks" />
+
+            <button className="taskBtn" type="submit"><AiOutlineSearch /></button>
+            </form>
 
         </div>
             
@@ -106,8 +90,8 @@ return (
                     <form className='taskForms' onSubmit={handleSubmit3}> */}
                     {icon ? <div>
             <FaRegFlag />
-            </div> : null}
-        </>
+        </div> : null}
+    </>
     );
 }
 
