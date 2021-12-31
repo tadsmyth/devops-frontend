@@ -41,13 +41,15 @@ function EditModal(props) {
     //.then close modal - add new modal that task is updated
   }
     
-  const handleTaskSubmit
-   = e => {
+  const handleTaskSubmit = e => {
     e.preventDefault()
   
-    console.log("Modal taskId",props.taskId);
+    console.log("!!!!!!!-->Modal taskId",props.taskId, task);
     axios.put(`${url}${props.taskId}`)
       .then(res => {
+        //update datum
+        datum.setCurrentTask(task)
+        datum.setTasks(...datum.tasks, task)
         console.log(res)
         console.log(res.data)
       })
@@ -68,7 +70,7 @@ function EditModal(props) {
             <Modal.Title id="contained-modal-title-vcenter">Edit Task</Modal.Title>
           </Modal.Header>
 
-          <form onSubmit={handleTaskSubmit}>
+          <form >
           
           <Modal.Body>
             <p>Task Name: {datum.currentTask.name}</p>
@@ -90,7 +92,7 @@ function EditModal(props) {
                 as="textarea"
                 name="description"
                 placeholder={datum.currentTask.description}
-                onChange={handleTaskSubmit}
+                // onChange={handleTaskSubmit}
                 rows={3}
               />
             </Form.Group>
@@ -100,14 +102,16 @@ function EditModal(props) {
 
             </Modal.Body>
             
-          </form>
+          
 
-          <Modal.Footer>
-            <button onclick={handleDelete}>Delete</button>
-            <Button type="submit">Update Task</Button>
-            <Completed />
-            <Button onClick={props.onHide}>Close</Button>
-          </Modal.Footer>
+            <Modal.Footer>
+              <button onclick={handleDelete}>Delete</button>
+              <Button type="submit" onSubmit={handleTaskSubmit}>Update Task</Button>
+              <Completed />
+              <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+
+          </form>
 
         </Modal>
       </>
