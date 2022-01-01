@@ -45,10 +45,16 @@ function EditModal(props) {
     e.preventDefault();
     const tempTask = props.task;
     
-    if (e.target.name.value)
-      tempTask.name = e.target.name.value;
-    if (e.target.projectID)
-      tempTask.projectID = e.target.projectID.value;
+    // e.target.map(taskItem => {
+    //   if ( !(taskItem.value=="" || taskItem.value==null) )
+
+    // })
+    if ( !(e.target.name.value==""  ||  e.target.name.value==null) )
+      tempTask.name = e.target.name.value
+    if (!(e.target.projectID==""   ||  e.target.projectID==null))
+      tempTask.projectID = e.target.projectID.value
+    if( !(e.target.description==""  ||  e.target.description==null) )
+      tempTask.target.description.value = e.target.description
 
 
     console.log("!!!!!!!-->tempTask/Task", tempTask);
@@ -61,7 +67,7 @@ function EditModal(props) {
 
       });
 
-
+    // {props.onHide}
   }
 
     return (
