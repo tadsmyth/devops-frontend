@@ -3,6 +3,8 @@ import CreatingTasks from '../bodyComponents/CreatingTasks'
 import dataContext from '../Context'
 import TaskCard from '../bodyComponents/TaskCard';
 import TaskCardNone from '../bodyComponents/TaskCardNone';
+import '../todoModal/CSS/searchTasks.css'
+import '../todoModal/CSS/projectField.css'
 
 function Dashboard(props) {
     const datum = useContext( dataContext )
