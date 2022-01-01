@@ -1,30 +1,43 @@
-import React from 'react';
+import React , {useState, useContext} from 'react';
+import dataContext from '../Context';
 
-const EditTaskStatus = ({task} , {setTask}) => {
+const EditTaskStatus = ( {props} ) => {
+  const datum = useContext(dataContext)
+  console.log("datum-currentTask:", datum.currentTask)
+
+  const [status, setStatus] = useState([])
 
   const handleStatusChange = e => {
-    // setTask(previousState => ({
+    console.log("StatusChange handler event:", e.target.value)
+    // setStatus(previousState => ({
     //   ...previousState,
     //   status: e.target.value
     // }))
   }
 
   return (
-    <>
-      This is test data for Editing status
-    <input type="checkbox" id="status" name="status" value="notStarted">
-      Not Started
-    </input>
-    
-    <input type="checkbox" id="status" name="status" value="inProgress" >
-      In Progress
-    </input>
+    <div >
+      Current Status: {datum.currentTask.status}
+      <p>
+        <label name="status">
+        <input type="radio"  id="status" value="notStarted" name="status" 
+        onClick={handleStatusChange} />
+        Not Started
+        </label>
+      <label name="status">
+        <input type="radio"  id="status" value="inProgress" name="status" 
+        onClick={handleStatusChange}/>
+        In Progress
+      </label>
 
-    <input type="checkbox" id="status" name="status" value="inReview">
-      In review
-    </input>
+      <label name="status">
+        <input type="radio"  id="status" value="inReview" name="status" 
+        onClick={handleStatusChange}/>
+        In Review
+      </label>
 
-    </>
+      </p>
+    </div>
     
     
   );
