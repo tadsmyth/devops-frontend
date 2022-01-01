@@ -62,6 +62,7 @@ function Dashboard(props) {
             <div className='d-flex flex-row-reverse mt-5 pt-3 px-2'>
                 <CreatingTasks />
             </div>
+
         <div className="taskCards">
             
                 {/* Not Started */}
@@ -85,22 +86,23 @@ function Dashboard(props) {
                         return <TaskCard task={task} />}) 
                     : <TaskCardNone />}
 
+                </div>
             </div>
-            </div>
-{/* In Review */}
-<div class="card">
-<div class="content">
+
+        {/* In Review */}
+        <div class="card">
+            <div class="content">
                 {projectTasks.length >0 ? 
                     tasksInReview.map((task) => {
                         console.log("inReview send to taskcard component:", task)
                         return <TaskCard task={task} />}) 
                     : <TaskCardNone />}
             </div>
-            </div>
+        </div>
                 </div>
                 </div>
                 </div>
-                </>
+        </>
                 );
             }
 export default Dashboard;

@@ -51,12 +51,13 @@ const TaskCard = ( {task} ) => {
       <p> Developers: 
           <br />
           {task.devs.map( (dev) => {
-            return <p>{dev}</p>
-            
+            return <p>{dev}</p>            
           })}
       </p>
       <p>TaskID: {task._id}</p>
-      <button className="button" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
+      <div>Due Date: {task.dueDate}</div>
+      <hr />
+      <button className="button" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit Task</button>
       <EditModal
         show={modalShow}
         onHide={() => setModalShow(false)}
@@ -64,6 +65,7 @@ const TaskCard = ( {task} ) => {
         taskId={task._id}
         task={task}
       />
+      <div>Show Comments</div>
       
       
     </div>
