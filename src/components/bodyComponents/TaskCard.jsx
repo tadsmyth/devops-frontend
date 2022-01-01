@@ -13,6 +13,7 @@ const TaskCard = ( {task} ) => {
       description: task.description,
       completed: false
   })
+  const currentTaskID = task._id
 
   // const getData = e => {
   //   e.preventDefault()
@@ -44,23 +45,27 @@ const TaskCard = ( {task} ) => {
     <div class="card">
     <div class="card-body">
       
-      <h5 class="title">{task?.name}</h5>
-      <p value= "task.name" class="description">Desc: {task?.description}.</p>
+      <h5 class="title">{task.name}</h5>
+      <p value= "task.name" class="description">Desc: {task.description}.</p>
       <p> Current Status: {task?.status}</p>
       <p> Developers: 
           <br />
           {task.devs.map( (dev) => {
-            return <p>{dev}</p>
-            
+            return <p>{dev}</p>            
           })}
       </p>
-      <button className="button" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit</button>
+      <p>TaskID: {task._id}</p>
+      <div>Due Date: {task.dueDate}</div>
+      <hr />
+      <button className="button" variant="primary" onClick={() => setModalShow(true)} taskId={task._id}>Edit Task</button>
       <EditModal
-      show={modalShow}
-      onHide={() => setModalShow(false)}
-      onClick={datum.setCurrentTask(task)}
-      taskId= {task._id}
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+        onClick={datum.setCurrentTask(task)}
+        taskId={task._id}
+        task={task}
       />
+      <div>Show Comments</div>
       
       
     </div>

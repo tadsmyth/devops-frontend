@@ -29,7 +29,7 @@ useEffect(() => {
   fetch(`${url}devops`)
       .then((res) => res.json())
       .then((res) => {setProjects(res)
-      console.log("Projects Data:", projects)
+      console.log("Initial Projects Data fetch:", projects)
       })
       .catch(console.err);
 
@@ -37,7 +37,7 @@ useEffect(() => {
   fetch(`${url}user`)
       .then((res) => res.json())
       .then((res) => {setDevs(res)
-      console.log("Dev Data:", devs)
+      console.log("Initial Dev Data fetch:", devs)
       })
       .catch(console.err);
 
@@ -46,25 +46,25 @@ useEffect(() => {
       .then((res) => res.json())
       .then((res) => {
           
-          const allTasks = []
-          console.log("Task/ToDo Data:", tasks)
-          //changes all unassigned tasks to the first project
-          res.map( (task) => {
-            // console.log("mapping task:", task)
-            if (task.length>0 && task.projectID.length<20){
-              console.log("changed", task.name, "id:", task.projectID, projects[0]?._id)
-              task.projectID = projects[0]._id
-              axios.put(`${url}task/${task._id}`, task)
-            }
-            allTasks.push(task)
-            console.log("alltasks mapped", allTasks)
-          } )
+        const allTasks = []
+        console.log("Initial Task/ToDo Data fetch:", tasks)
+        //map changes all unassigned tasks to the first project          
+        res.map( (task) => {
+          
+          // console.log("mapping task:", task)
+          if (task.length>0 && task.projectID.length<20){
+            console.log("changed", task.name, "id:", task.projectID, projects[0]?._id)
+            task.projectID = projects[0]._id
+            axios.put(`${url}task/${task._id}`, task)
+          }
+          allTasks.push(task)
+          // console.log("alltasks mapped", allTasks)
+        } )
 
-          // console.log("tasks populated in the useContext:", tasks)
-          //commenting and uncommenting the above log might fix/cause an error
-          //if errors occur remove map until here. keep setTasks(tasks)
-          setTasks(allTasks)
-          console.log("tasks in datum:", datum.tasks) 
+        // console.log("tasks populated in the useContext:", tasks)
+        
+        setTasks(allTasks)
+        console.log("tasks in datum:", datum.tasks) 
       })
       .catch(console.err);
   }, [currentProject])

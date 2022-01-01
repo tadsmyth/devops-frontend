@@ -3,7 +3,6 @@ import { BsBell, BsHouse, BsGear, BsFillPersonPlusFill} from 'react-icons/bs'
 import {Link, Router} from 'react-router-dom'
 import Adding from './todoModal/Adding'
 import {BiDotsVerticalRounded, BiComment} from 'react-icons/bi'
-import CurrentProject from './CurrentProject'
 import dataContext from './Context'
 
 
@@ -103,7 +102,3 @@ function Header(props) {
 }
 
 export default Header;
-
-
-
-

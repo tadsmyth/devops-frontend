@@ -41,20 +41,33 @@ function EditModal(props) {
     //.then close modal - add new modal that task is updated
   }
     
-  const handleTaskSubmit = e => {
-    e.preventDefault()
-  
-    console.log("!!!!!!!-->Modal taskId",props.taskId, task);
-    axios.put(`${url}${props.taskId}`)
+  function handleTaskSubmit(e) {
+    e.preventDefault();
+    const tempTask = props.task;
+    
+    // e.target.map(taskItem => {
+    //   if ( !(taskItem.value=="" || taskItem.value==null) )
+
+    // })
+    if ( !(e.target.name.value==""  ||  e.target.name.value==null) )
+      tempTask.name = e.target.name.value
+    if (!(e.target.projectID==""   ||  e.target.projectID==null))
+      tempTask.projectID = e.target.projectID.value
+    if( !(e.target.description==""  ||  e.target.description==null) )
+      tempTask.target.description.value = e.target.description
+
+
+    console.log("!!!!!!!-->tempTask/Task", tempTask);
+    axios.put(`${url}task/${props.taskId}`, tempTask)
       .then(res => {
         //update datum
-        datum.setCurrentTask(task)
-        datum.setTasks(...datum.tasks, task)
-        console.log(res)
-        console.log(res.data)
-      })
+        datum.setCurrentTask(tempTask);
+        datum.setTasks(...datum.tasks, tempTask);
+        console.log(res);
 
-      setTask('')
+      });
+
+    // {props.onHide}
   }
 
     return (
@@ -70,15 +83,16 @@ function EditModal(props) {
             <Modal.Title id="contained-modal-title-vcenter">Edit Task</Modal.Title>
           </Modal.Header>
 
-          <form >
+          <form onSubmit={handleTaskSubmit}>
           
           <Modal.Body>
-            <p>Task Name: {datum.currentTask.name}</p>
+            <p>Task Name: {props.task.name}</p>
             <input
               type="text"
               name="task"
-              onChange={handleTaskNameChange}
-              placeholder={datum.currentTask.name}
+              id="name"
+              // onChange={handleTaskNameChange}
+              placeholder={props.task.name}
             />
 
             <Form.Group
@@ -86,27 +100,26 @@ function EditModal(props) {
               controlId="exampleForm.ControlTextarea1"
             >
               <p>Description: </p>
-              <p>{datum.currentTask.description}</p>
+              <p>{props.task.description}</p>
               <Form.Control
                 className="Description"
                 as="textarea"
                 name="description"
-                placeholder={datum.currentTask.description}
+                id="description"
+                placeholder={props.task.description}
                 // onChange={handleTaskSubmit}
                 rows={3}
               />
             </Form.Group>
 
             <EditTaskProjectID />
-            <EditTaskStatus task={task} setTask={setTask}/>
+            {/* <EditTaskStatus /> */}
 
             </Modal.Body>
-            
-          
 
             <Modal.Footer>
               <button className="button" onclick={handleDelete} >Delete</button>
-              <Button type="submit" onSubmit={handleTaskSubmit}>Update Task</Button>
+              <Button type="submit" >Update Task</Button>
               <Completed />
               <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>
