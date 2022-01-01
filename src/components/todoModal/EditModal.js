@@ -79,13 +79,13 @@ function EditModal(props) {
           <form >
           
           <Modal.Body>
-            <p>Task Name: {datum.currentTask.name}</p>
+            <p>Task Name: {props.task.name}</p>
             <input
               type="text"
               name="task"
               id="name"
               onChange={handleTaskNameChange}
-              placeholder={datum.currentTask.name}
+              placeholder={props.task.name}
             />
 
             <Form.Group
@@ -93,13 +93,13 @@ function EditModal(props) {
               controlId="exampleForm.ControlTextarea1"
             >
               <p>Description: </p>
-              <p>{datum.currentTask.description}</p>
+              <p>{props.task.description}</p>
               <Form.Control
                 className="Description"
                 as="textarea"
                 name="description"
                 id="description"
-                placeholder={datum.currentTask.description}
+                placeholder={props.task.description}
                 // onChange={handleTaskSubmit}
                 rows={3}
               />
@@ -109,8 +109,6 @@ function EditModal(props) {
             {/* <EditTaskStatus /> */}
 
             </Modal.Body>
-            
-          
 
             <Modal.Footer>
               <button className="button" onclick={handleDelete} >Delete</button>
