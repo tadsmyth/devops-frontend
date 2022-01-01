@@ -1,10 +1,11 @@
-import React, { useEffect, useContext, useState } from 'react';
-import CreatingTasks from '../bodyComponents/CreatingTasks'
-import dataContext from '../Context'
-import TaskCard from '../bodyComponents/TaskCard';
-import TaskCardNone from '../bodyComponents/TaskCardNone';
-import '../todoModal/CSS/searchTasks.css'
-import '../todoModal/CSS/projectField.css'
+import React, { useEffect, useContext, useState } from "react";
+import CreatingTasks from "../bodyComponents/CreatingTasks";
+import dataContext from "../Context";
+import TaskCard from "../bodyComponents/TaskCard";
+import TaskCardNone from "../bodyComponents/TaskCardNone";
+import "../todoModal/CSS/searchTasks.css";
+import "../todoModal/CSS/projectField.css";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 function Dashboard(props) {
     const datum = useContext( dataContext )
@@ -68,7 +69,7 @@ function Dashboard(props) {
         <div className="taskCards">
             
                 {/* Not Started */}
-            {/* <div class="containers"> */}<div>
+            <div class="containers">
                 <div data-tilt data-tilt-glare data-tilt-max-glare="0.8" class="card">
                 <div class="content">
                     {projectTasks.length >0 ? 
@@ -80,8 +81,8 @@ function Dashboard(props) {
             </div>
             
             {/* In Progress */}
-            {/* <div class="card"> */}<div>
-            {/* <div class="content"> */}<div>
+            <div class="card">
+            <div class="content">
                 {projectTasks.length>0 ? 
                     tasksInProgress.map((task) => {//
                         // console.log("inProgress send to taskcard component:", task)
