@@ -52,7 +52,11 @@ useEffect(() => {
         res.map( (task) => {
           
           // console.log("mapping task:", task)
+<<<<<<< HEAD
           if (tasks.length>0 && task.projectID.length<20){
+=======
+          if (task.projectID.length<20){
+>>>>>>> afda55c (removed task.length>0&& in App.js line 55)
             console.log("changed", task.name, "id:", task.projectID, projects[0]?._id)
             task.projectID = projects[0]._id
             axios.put(`${url}task/${task._id}`, task)
