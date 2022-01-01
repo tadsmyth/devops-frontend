@@ -13,31 +13,7 @@ const TaskCard = ( {task} ) => {
       description: task.description,
       completed: false
   })
-  const currentTaskID = task._id
-
-  // const getData = e => {
-  //   e.preventDefault()
-
-  // axios.get(`http://localhost:4000/`, task._id)
-  //   .then(res => {
-  //     console.log(res)
-  //     console.log("im getting it", task._id)
-  //     console.log(res.data)
-  //   })
-  // }
-
  
-
-  const handleEdit = e => {
-    e.preventDefault()
-
-  axios.put(`${url}task${task._id}`, task)
-    .then(res => {
-      // console.log(res)
-      // console.log("task card", task._id);
-      // console.log(res.data)
-    })
-  }
   
   const [modalShow, setModalShow] = React.useState(false);
 
