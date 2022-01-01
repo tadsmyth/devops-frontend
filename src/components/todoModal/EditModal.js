@@ -43,18 +43,24 @@ function EditModal(props) {
     
   const handleTaskSubmit = e => {
     e.preventDefault()
+    const tempTask = task
+    if(e.currentTarget.name.value)
+      tempTask.name = e.currentTarget.name.value
+    if(e.e.currentTarget.projectID)
+      tempTask.name = e.currentTarget.projectID.value
+    
   
-    console.log("!!!!!!!-->Modal taskId",props.taskId, task);
+    console.log("!!!!!!!-->tempTask/Task", tempTask, task);
     axios.put(`${url}${props.taskId}`)
       .then(res => {
         //update datum
-        datum.setCurrentTask(task)
-        datum.setTasks(...datum.tasks, task)
+        datum.setCurrentTask(tempTask)
+        datum.setTasks(...datum.tasks, tempTask)
         console.log(res)
-        console.log(res.data)
+        
       })
 
-      setTask('')
+      
   }
 
     return (
@@ -77,6 +83,7 @@ function EditModal(props) {
             <input
               type="text"
               name="task"
+              id="name"
               onChange={handleTaskNameChange}
               placeholder={datum.currentTask.name}
             />
@@ -91,6 +98,7 @@ function EditModal(props) {
                 className="Description"
                 as="textarea"
                 name="description"
+                id="description"
                 placeholder={datum.currentTask.description}
                 // onChange={handleTaskSubmit}
                 rows={3}
@@ -98,7 +106,7 @@ function EditModal(props) {
             </Form.Group>
 
             <EditTaskProjectID />
-            <EditTaskStatus task={task} setTask={setTask}/>
+            {/* <EditTaskStatus /> */}
 
             </Modal.Body>
             

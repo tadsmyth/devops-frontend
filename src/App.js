@@ -46,25 +46,25 @@ useEffect(() => {
       .then((res) => res.json())
       .then((res) => {
           
-          const allTasks = []
-          console.log("Initial Task/ToDo Data fetch:", tasks)
-          //map changes all unassigned tasks to the first project          
-          res.map( (task) => {
-            
-            // console.log("mapping task:", task)
-            if (task.length>0 && task.projectID.length<20){
-              console.log("changed", task.name, "id:", task.projectID, projects[0]?._id)
-              task.projectID = projects[0]._id
-              axios.put(`${url}task/${task._id}`, task)
-            }
-            allTasks.push(task)
-            // console.log("alltasks mapped", allTasks)
-          } )
-
-          // console.log("tasks populated in the useContext:", tasks)
+        const allTasks = []
+        console.log("Initial Task/ToDo Data fetch:", tasks)
+        //map changes all unassigned tasks to the first project          
+        res.map( (task) => {
           
-          setTasks(allTasks)
-          console.log("tasks in datum:", datum.tasks) 
+          // console.log("mapping task:", task)
+          if (task.length>0 && task.projectID.length<20){
+            console.log("changed", task.name, "id:", task.projectID, projects[0]?._id)
+            task.projectID = projects[0]._id
+            axios.put(`${url}task/${task._id}`, task)
+          }
+          allTasks.push(task)
+          // console.log("alltasks mapped", allTasks)
+        } )
+
+        // console.log("tasks populated in the useContext:", tasks)
+        
+        setTasks(allTasks)
+        console.log("tasks in datum:", datum.tasks) 
       })
       .catch(console.err);
   }, [currentProject])
