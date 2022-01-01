@@ -41,26 +41,27 @@ function EditModal(props) {
     //.then close modal - add new modal that task is updated
   }
     
-  const handleTaskSubmit = e => {
-    e.preventDefault()
-    const tempTask = task
-    if(e.currentTarget.name.value)
-      tempTask.name = e.currentTarget.name.value
-    if(e.e.currentTarget.projectID)
-      tempTask.name = e.currentTarget.projectID.value
+  function handleTaskSubmit(e) {
+    e.preventDefault();
+    const tempTask = props.task;
     
-  
-    console.log("!!!!!!!-->tempTask/Task", tempTask, task);
-    axios.put(`${url}${props.taskId}`)
+    if (e.target.name.value)
+      tempTask.name = e.target.name.value;
+    if (e.target.projectID)
+      tempTask.projectID = e.target.projectID.value;
+
+
+    console.log("!!!!!!!-->tempTask/Task", tempTask);
+    axios.put(`${url}task/${props.taskId}`, tempTask)
       .then(res => {
         //update datum
-        datum.setCurrentTask(tempTask)
-        datum.setTasks(...datum.tasks, tempTask)
-        console.log(res)
-        
-      })
+        datum.setCurrentTask(tempTask);
+        datum.setTasks(...datum.tasks, tempTask);
+        console.log(res);
 
-      
+      });
+
+
   }
 
     return (
@@ -76,7 +77,7 @@ function EditModal(props) {
             <Modal.Title id="contained-modal-title-vcenter">Edit Task</Modal.Title>
           </Modal.Header>
 
-          <form >
+          <form onSubmit={handleTaskSubmit}>
           
           <Modal.Body>
             <p>Task Name: {props.task.name}</p>
@@ -84,7 +85,7 @@ function EditModal(props) {
               type="text"
               name="task"
               id="name"
-              onChange={handleTaskNameChange}
+              // onChange={handleTaskNameChange}
               placeholder={props.task.name}
             />
 
@@ -112,7 +113,7 @@ function EditModal(props) {
 
             <Modal.Footer>
               <button className="button" onclick={handleDelete} >Delete</button>
-              <Button type="submit" onSubmit={handleTaskSubmit}>Update Task</Button>
+              <Button type="submit" >Update Task</Button>
               <Completed />
               <Button onClick={props.onHide}>Close</Button>
             </Modal.Footer>

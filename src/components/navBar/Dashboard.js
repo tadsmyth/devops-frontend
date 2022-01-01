@@ -41,8 +41,8 @@ function Dashboard(props) {
         }
         
         setProjectTasks(tempArr)//setProjectTasks(taskObj)
-        console.log("task objects", taskObj)
-        console.log("projectTasks:", projectTasks)
+        // console.log("task objects", taskObj)
+        // console.log("projectTasks:", projectTasks)
         // projectTasks?.tasksNotStarted.map((task) => console.log("not started:", task))
         // projectTasks?.tasksInProgress.map((task) => console.log("tasksInProgress:", task))
         // projectTasks?.tasksInProgress.map((task) => console.log("tasksInProgress:", task))
@@ -71,7 +71,7 @@ function Dashboard(props) {
                 <div class="content">
                     {projectTasks.length >0 ? 
                         tasksNotStarted.map((task) => { //projectTasks.tasksNotStarted.map((task) =>
-                            console.log("notStarted send to taskcard component:", task)
+                            // console.log("notStarted send to taskcard component:", task)
                             return <TaskCard task={task} />}) 
                         : <TaskCardNone />}
                 </div>
@@ -82,7 +82,7 @@ function Dashboard(props) {
             {/* <div class="content"> */}<div>
                 {projectTasks.length>0 ? 
                     tasksInProgress.map((task) => {//
-                        console.log("inProgress send to taskcard component:", task)
+                        // console.log("inProgress send to taskcard component:", task)
                         return <TaskCard task={task} />}) 
                     : <TaskCardNone />}
 
@@ -94,7 +94,7 @@ function Dashboard(props) {
             <div class="content">
                 {projectTasks.length >0 ? 
                     tasksInReview.map((task) => {
-                        console.log("inReview send to taskcard component:", task)
+                        // console.log("inReview send to taskcard component:", task)
                         return <TaskCard task={task} />}) 
                     : <TaskCardNone />}
             </div>
