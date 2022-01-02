@@ -3,6 +3,7 @@ import axios from 'axios';
 import EditModal from '../todoModal/EditModal';
 import Connection from '../../Connection'
 import dataContext from '../Context';
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const TaskCard = ( {task} ) => {
   const url = Connection
@@ -18,16 +19,27 @@ const TaskCard = ( {task} ) => {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
-    <div class="card">
+    <>
+    <Droppable droppableId="cardDrops">
+    {(provided) => (
+              <div
+                className="taskCards"
+                {...provided.droppableProps}
+                ref={provided.innerRef}
+              >
+    <Draggable draggableId={task._id}>
+    {(provided) => (
+    <div class="card" {...provided.draggableProps}
+    {...provided.dragHandleProps}
+    ref={provided.innerRef}>
     <div class="card-body">
-      
       <h5 class="title">{task.name}</h5>
       <p value= "task.name" class="description">Desc: {task.description}.</p>
       <p> Current Status: {task?.status}</p>
       <p> Developers: 
           <br />
           {task.devs.map( (dev) => {
-            return <p>{dev}</p>            
+            return <p>{dev}</p> 
           })}
       </p>
       <p>TaskID: {task._id}</p>
@@ -40,12 +52,17 @@ const TaskCard = ( {task} ) => {
         onClick={datum.setCurrentTask(task)}
         taskId={task._id}
         task={task}
-      />
+        />
       <div>Show Comments</div>
-      
-      
+      <span style={{ display: 'none' }}>{provided.placeholder}</span>
     </div>
   </div>
+        )}
+      </Draggable>
+      </div>
+      )}
+      </Droppable>
+  </>
   );
 };
 

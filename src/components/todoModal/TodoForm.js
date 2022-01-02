@@ -50,7 +50,6 @@ return (
       <CurrentProject />
         {/* The hover state is cool but it makes hitting the button kinda tricky when it changes size. Thoughts on removing? - Tad */}
 
-<<<<<<< HEAD
         <form className='projectForm' onSubmit={handleSubmit}>
 
           <input
@@ -72,30 +71,6 @@ return (
 
           <button className="taskBtn" type="submit"><AiOutlineSearch /></button>
         </form>
-=======
-            <div className='projectForm'>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type='text'
-                    placeholder='Project Name'
-                    // value={''}
-                    button={setIcon}
-                    name='text'
-                    className="projectInputField"
-                    onChange={handleChange}
-                    />
-
-                <button className='projectBtn' type="submit" onclick={resetFeild}>Add Project</button>
-            </form>
-            </div>
-
-            <div className="taskForm">
-            <form className="">
-            <input className="taskInputField" type="search" placeholder="Search Tasks" />
-            <button className="taskBtn" type="submit"> <AiOutlineSearch /></button>
-            </form>
-            </div>
->>>>>>> 5eb7cc2 (search/project Input bars done)
 
     </div>
         
