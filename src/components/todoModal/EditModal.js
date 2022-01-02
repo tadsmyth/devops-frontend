@@ -65,17 +65,18 @@ function EditModal(props) {
         <Modal
           {...props}
           size="m"
+          className="editModals"
           aria-labelledby="contained-modal-title-vcenter"
           centered
         >
 
-          <Modal.Header closeButton>
+          <Modal.Header className="editModalHeader" closeButton>
             <Modal.Title id="contained-modal-title-vcenter">Edit Task</Modal.Title>
           </Modal.Header>
 
           <form onSubmit={handleTaskSubmit}>
           
-          <Modal.Body>
+          <Modal.Body className="editModalBody">
             <p>Task Name: {props.task.name}</p>
             <input
               type="text"
@@ -107,7 +108,7 @@ function EditModal(props) {
 
             </Modal.Body>
 
-            <Modal.Footer>
+            <Modal.Footer className="editModalFooter">
               <button className="button" onclick={handleDelete} >Delete</button>
               <Button type="submit" >Update Task</Button>
               <Completed />

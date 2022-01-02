@@ -82,7 +82,9 @@ function Dashboard(props) {
             // ref={provided.innerRef}
           >
             {/* Not Started */}
-            <div class="containers">
+            <div 
+            class="containers"
+            >
               <div
                 data-tilt
                 data-tilt-glare
@@ -90,7 +92,7 @@ function Dashboard(props) {
                 class="containers"
               >
                 <div class="content">
-                  <p>Not Started</p>
+                  <p className="statusNames">Not Started</p>
                   {projectTasks.length > 0 ? (
                     tasksNotStarted.map((task) => {
                       //projectTasks.tasksNotStarted.map((task) =>
@@ -111,7 +113,9 @@ function Dashboard(props) {
                 class="containers"
               >
                 <div class="content">
-                  <p>In Progress</p>
+                  <p
+                  className="statusNames"
+                  >In Progress</p>
                   {projectTasks.length > 0 ? (
                     tasksInProgress.map((task) => {
                       //
@@ -132,7 +136,7 @@ function Dashboard(props) {
                 class="containers"
               >
                 <div class="content">
-                  <p>In Review</p>
+                  <p className="statusNames">In Review</p>
                   {projectTasks.length > 0 ? (
                     tasksInReview.map((task) => {
                       // console.log("inReview send to taskcard component:", task)
