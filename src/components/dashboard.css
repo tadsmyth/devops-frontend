@@ -1,135 +1,8 @@
-.projectBtn {
-}
-
 .todoInput {
 }
 
 .dashHeader {
 }
-
-.projectDropBtn {
-}
-
-.projectForm {
-}
-
-.projectInputField {
-   width: 100%;
-   font-size: 16px;
-   padding: 10px 10px 10px 60px;
-   border: 1px solid #dadada;
-   background-color: rgba (0 0 0 / 0);
-   position: relative;
-   right: 150px;
-   bottom: -30px;
-}
-.projectBtn {
-    position: absolute;
-    right: 150px;
-    bottom: 800px;
-}
-
-.taskForm {
-
-}
-
-.taskInputField {
-    width: 100%;
-    font-size: 16px;
-    padding: 10px 10px 10px 60px;
-    border: 1px solid #dadada;
-    position: relative;
-    border-radius: 10px;
-    right: 600px;
-    top: -50px;
-    transition: all 0.3s;
-}
-
-.taskInputField:hover {
-    padding: 12px 0;
-            outline: 0;
-            border: 1px solid transparent;
-            border-bottom: 1px solid #575756;
-            border-radius: 0;
-            background-position: 100% center;
-}
-
-.taskBtn {
-    background-color: rgba(0 0 0 / 0);
-    position: absolute;
-    font-size: 35px;
-    right: -100px;
-    bottom: 785px;
-}
-
-
-@media only screen and (max-width: 1435px) and (min-width: 1311px) {
-    .taskInputField {
-        width: 100%;
-        font-size: 16px;
-        padding: 10px 10px 10px 60px;
-        border: 1px solid #dadada;
-        position: relative;
-        right: 580px;
-        top: -50px;
-        transition: all 0.3s;
-    }
-
-    .taskBtn {
-        background-color: rgba(0 0 0 / 0);
-        position: absolute;
-        left: 570px;
-        top: 95px;
-        font-size: 30px;
-        transition: all 0.3s;
-    }
-    
-}
-
-@media only screen and (max-width: 1310px) and (min-width: 900px) {
-    .taskInputField {
-        width: 100%;
-        font-size: 8px;
-        padding: 10px 10px 10px 60px;
-        border: 1px solid #dadada;
-        position: relative;
-        right: 40px;
-        transition: all 0.3s;
-    }
-
-    .taskBtn {
-        background-color: rgba(0 0 0 / 0);
-        position: absolute;
-        left: 210px;
-        top: 5px;
-        font-size: 30px;
-        transition: all 0.3s;
-    }
-    
-}
-
-@media only screen and (max-width: 1441px) and (min-width: 1440px) {
-    .taskInputField {
-        width: 100%;
-        font-size: 20px;
-        padding: 10px 10px 10px 60px;
-        border: 1px solid #dadada;
-        position: relative;
-        right: 950px;
-        transition: all 0.3s;
-    }
-
-    .taskBtn {
-        background-color: rgba(0 0 0 / 0);
-        position: absolute;
-        left: 230px;
-        top: 90px;
-        font-size: 30px;
-        transition: all 0.3s;
-    }
-    
-}
-
 
 /* Dashboard.js making the glass */
 
@@ -169,15 +42,19 @@
     display: flex;
     justify-content: center;
     max-width: 1200px;
+    height: 1200px;
+    right: -45px;
     flex-wrap: wrap;
     z-index: 1;
 }
 
+/* CHANGES THE WHOLE BODY OF PAGE */
 .main-body {
     background-color: green;
 }
 
-.containers .card {
+.containers 
+.card {
     position: relative;
     width: 280px;
     height: 400px;
@@ -186,12 +63,18 @@
     border-radius: 15px;
     background:rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    display: flex;
+    /* display: flex; */
+    display: grid;
     justify-content: center;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     backdrop-filter: blur(5px);
+    border: 3px solid;
+    display: flex;
+    padding: 12px 17px;
+    margin-bottom: 8px;
+    align-items: center;
 }
 
 .containers .card .content {
@@ -216,24 +99,24 @@
     pointer-events: none;
 } */
 
-.containers .card .content .title {
+.containers .containers .content .title {
    font-size: 1.4em;
    color: #fff;
    z-index: 1;
 }
-.containers .card .content .description {
+.containers .containers .content .description {
    font-size: 1em;
    color: #fff;
    font-weight: 300;
 }
 
-.containers .card .content .button {
+.containers .containers .content .button {
    position: relative;
    display: inline-block;
    padding: 8px 20px;
-   margin-top: 15px;
-   margin-left: 15px;
-   margin-right: 15px;
+   margin-top: -10px;
+   margin-left: 50px;
+   margin-right: 20px;
    background: #fff;
    color: #000;
    border-radius: 20px;
