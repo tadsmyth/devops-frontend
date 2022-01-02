@@ -7,15 +7,7 @@ import './dashboard.css'
 const CurrentProject = () => {
 
   let datum = useContext( dataContext )
-    // useEffect( () => {
-    //    if(datum.projects.length)
-    //         { datum.setCurrentProject = datum.projects[0]._id
-    //         }
-    //         console.log("initial project:", datum.projects.id);
-    // }, [])
-
-
-// }
+  
     function setCurrentProject(project) {
       datum.setCurrentProject(project)
       console.log("currentProject:" , datum.currentProject)
