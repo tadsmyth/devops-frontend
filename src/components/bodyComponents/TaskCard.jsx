@@ -4,6 +4,7 @@ import EditModal from '../todoModal/EditModal';
 import Connection from '../../Connection'
 import dataContext from '../Context';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import '../todoModal/CSS/editModal.css'
 
 const TaskCard = ( {task} ) => {
   const url = Connection
