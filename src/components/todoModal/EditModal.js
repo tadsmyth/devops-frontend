@@ -21,18 +21,10 @@ function EditModal(props) {
     console.log("EditModal Active Task:", datum.task)
   }, [])
     
-    
-  const handleTaskNameChange = e => {
-    setTask(previousState => ({
-      ...previousState,
-      name: e.target.value
-    }))
-  }
-
-   const handleDelete = e => {
+  const handleDelete = e => {
     e.preventDefault()
 
-  axios.delete(`${url}task`, task)
+    axios.delete(`${url}task/${props.task._id}`)
     .then(res => {
       console.log(res)
       console.log(res.data)
@@ -45,19 +37,17 @@ function EditModal(props) {
     e.preventDefault();
     const tempTask = props.task;
     
-    // e.target.map(taskItem => {
-    //   if ( !(taskItem.value=="" || taskItem.value==null) )
-
-    // })
-    if ( !(e.target.name.value==""  ||  e.target.name.value==null) )
+    console.log("status value",e.target.status.value)
+    if ( !(e.target.name.value===""  ||  e.target.name.value==null) )
       tempTask.name = e.target.name.value
-    if (!(e.target.projectID==""   ||  e.target.projectID==null))
+    if (!(e.target.projectID.value===""   ||  e.target.projectID.value==null))
       tempTask.projectID = e.target.projectID.value
-    if( !(e.target.description==""  ||  e.target.description==null) )
-      tempTask.target.description.value = e.target.description
-
-
-    console.log("!!!!!!!-->tempTask/Task", tempTask);
+    if( !(e.target.description.value===""  ||  e.target.description.value==null) )
+      tempTask.description = e.target.description.value
+    if( !(e.target.status.value===""  ||  e.target.status.value==null) )
+      tempTask.status = e.target.status.value
+    
+    // console.log("!!!!!!!-->tempTask/Task", tempTask);
     axios.put(`${url}task/${props.taskId}`, tempTask)
       .then(res => {
         //update datum
@@ -67,7 +57,7 @@ function EditModal(props) {
 
       });
 
-    // {props.onHide}
+    props.onHide()
   }
 
     return (
@@ -101,19 +91,19 @@ function EditModal(props) {
             >
               <p>Description: </p>
               <p>{props.task.description}</p>
-              <Form.Control
+              <textarea
+                type="textarea"
                 className="Description"
                 as="textarea"
                 name="description"
                 id="description"
                 placeholder={props.task.description}
-                // onChange={handleTaskSubmit}
-                rows={3}
+                rows="3"
               />
             </Form.Group>
 
             <EditTaskProjectID />
-            {/* <EditTaskStatus /> */}
+            <EditTaskStatus task={props.task} name="status" id="status" />
 
             </Modal.Body>
 

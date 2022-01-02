@@ -11,6 +11,10 @@
    
 }
 
+input[type="radio"]{
+    -webkit-appearance: radio;
+}
+
 .wrapper .sidebar{
     background: #478cf5;
     cursor: pointer;
