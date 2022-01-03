@@ -5,7 +5,7 @@ import TaskCard from "../bodyComponents/TaskCard";
 import TaskCardNone from "../bodyComponents/TaskCardNone";
 import "../todoModal/CSS/searchTasks.css";
 import "../todoModal/CSS/projectField.css";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { DragDropContext } from "react-beautiful-dnd";
 
 function Dashboard(props) {
   const datum = useContext(dataContext);
@@ -82,13 +82,8 @@ function Dashboard(props) {
             // ref={provided.innerRef}
           >
             {/* Not Started */}
-            <div 
-            class="containers"
-            >
+            <div class="containers">
               <div
-                data-tilt
-                data-tilt-glare
-                data-tilt-max-glare="0.8"
                 class="containers"
               >
                 <div class="content">
@@ -113,9 +108,7 @@ function Dashboard(props) {
                 class="containers"
               >
                 <div class="content">
-                  <p
-                  className="statusNames"
-                  >In Progress</p>
+                  <p className="statusNames">In Progress</p>
                   {projectTasks.length > 0 ? (
                     tasksInProgress.map((task) => {
                       //

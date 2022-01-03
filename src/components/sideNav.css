@@ -27,13 +27,14 @@ input {
 }
 
 .navs {
-    color: #363949;
+    /* color: #363949; */
+    color: rgba(241, 206, 160, 0.931);
     cursor: pointer;
     text-decoration: none;
 }
 
 .navsInactive {
-    color: #363949;
+    color: rgba(241, 206, 160, 0.931);
     cursor: pointer;
     text-decoration: none;
     text-align: center;
@@ -71,34 +72,20 @@ input {
     /* cursor: pointer; */
 }
 
-/* .close { */
-    /* background: white; */
-    /* display: flex;
-    align-items: center;
-    margin-top: 1.4rem;
-    margin-left: 12rem;
-    display: none;
-} */
-/* .open { */
-    /* background: white; */
-    /* display: flex;
-    align-items: center;
-    margin-top: 1.4rem;
-    margin-left: 12rem; */
-    /* display: none; */
-/* } */
-
 .toggleBtn {
     font-size: 20px;
     position: absolute;
     right: 4px;
+    color: white;
     /* right: -25px; */
     top: 10%;
     /* display: inline-block; */
 }
 
 .inactive .toggleBtn {
-    right: -25px;
+    right: 5px;
+    top: 15px;
+    color: black;
     cursor: pointer;
 }
 
@@ -125,7 +112,7 @@ input {
 
 aside .navs span {
     /* display: flex; */
-    color: cyan;
+    color: rgb(241, 206, 160);
     margin-left: 0.8rem;
     gap: 1rem;
     align-items: center;
@@ -136,8 +123,9 @@ aside .navs span {
 
 .inactive {
     width: 80px ;
-    background-color: black;
+    background-color: rgb(78, 123, 182);
     position: fixed;
+    /* color: green; */
     /* font-size: 1.5rem; */
     top: 0;
     left: 0;

@@ -6,9 +6,12 @@
     /* padding-top: 3.9rem; */
 }
 
+#headerIcons {
+    color: rgb(241, 206, 160);
+}
+
 .header {
     height: 4rem;
-   
 }
 
 input[type="radio"]{
@@ -16,7 +19,7 @@ input[type="radio"]{
 }
 
 .wrapper .sidebar{
-    background: #478cf5;
+    background: rgba(78, 123, 182, 0.918);
     cursor: pointer;
     position: fixed;
     font-size: 1.5rem;
@@ -26,7 +29,6 @@ input[type="radio"]{
     height: 100%;
     padding: 10px 0;
     transition: all 0.5s ease;
-    
 }
 .wrapper .sidebar .user{
     margin-bottom: 30px;
@@ -77,4 +79,6 @@ body.active .wrapper .section{
     transition: all 300ms ease;
 }
 
-
+.header {
+    background-color: rgb(78, 123, 182);
+}

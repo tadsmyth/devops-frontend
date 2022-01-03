@@ -11,7 +11,7 @@ function Adding(props) {
         <>
             
             <li className="nav-item" variant="primary" onClick={() => setModalShow(true)}>
-                <a className="nav-link m-2" href="#">
+                <a id= "headerIcons" className="nav-link m-2" href="#">
                     <AiOutlinePlus size={30}/>
                 </a>
             </li>

@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from 'axios'
 import Modal from "react-bootstrap/Modal";
-import CloseButton from "react-bootstrap/CloseButton";
 import Connection from '../../Connection'
 import EditTaskProjectID from './EditTaskProjectID.jsx'
 import EditTaskStatus from './EditTaskStatus';
@@ -13,7 +12,6 @@ import dataContext from '../Context';
 function EditModal(props) {
   const url = Connection
   const datum = useContext(dataContext)
-  const [task, setTask] = useState([])
   
   useEffect( () => {
     //sets local useState task as the task found in datum
@@ -54,7 +52,6 @@ function EditModal(props) {
         datum.setCurrentTask(tempTask);
         datum.setTasks(...datum.tasks, tempTask);
         console.log(res);
-
       });
 
     props.onHide()
@@ -109,7 +106,7 @@ function EditModal(props) {
             </Modal.Body>
 
             <Modal.Footer className="editModalFooter">
-              <button className="button" onclick={handleDelete} >Delete</button>
+              <button className="editbutton" onclick={handleDelete} >Delete</button>
               <Button type="submit" >Update Task</Button>
               <Completed />
               <Button onClick={props.onHide}>Close</Button>
