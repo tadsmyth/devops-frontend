@@ -8,6 +8,7 @@ import EditTaskProjectID from './EditTaskProjectID.jsx'
 import EditTaskStatus from './EditTaskStatus';
 import Completed from '../todoModal/Completed';
 import dataContext from '../Context';
+import './CSS/searchTasks.css'
 
 function EditModal(props) {
   const url = Connection
@@ -106,10 +107,10 @@ function EditModal(props) {
             </Modal.Body>
 
             <Modal.Footer className="editModalFooter">
-              <button className="editbutton" onclick={handleDelete} >Delete</button>
-              <Button type="submit" >Update Task</Button>
+              <button className="buttonEditModal" onclick={handleDelete} >Delete</button>
+              <Button className="buttonEditModal" type="submit" >Update Task</Button>
               <Completed />
-              <Button onClick={props.onHide}>Close</Button>
+              <Button className="buttonCloseModal" onClick={props.onHide}>Close</Button>
             </Modal.Footer>
 
           </form>
