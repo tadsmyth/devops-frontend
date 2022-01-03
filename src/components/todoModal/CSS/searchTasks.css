@@ -243,3 +243,43 @@
         bottom: 2px;
     }
 }
+
+.buttonEditModal {
+    position: relative;
+   display: inline-block;
+   padding: 8px 20px;
+   margin-top: -10px;
+   margin-left: 50px;
+   margin-right: 20px;
+   right: 50px;
+   background: #fff;
+   color: #000;
+   border-radius: 20px;
+   text-decoration: none;
+   font-weight: 500;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.buttonCloseModal {
+    position: relative;
+   display: inline-block;
+   padding: 8px 20px;
+   margin-top: 15px;
+   margin-left: 50px;
+   margin-right: 20px;
+   right: 0px;
+   background: #fff;
+   color: #000;
+   border-radius: 20px;
+   text-decoration: none;
+   font-weight: 500;
+   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.buttonEditModal:hover {
+    background: rgb(241, 206, 160);
+}
+
+.buttonCloseModal:hover {
+    background: rgb(241, 206, 160);
+}
