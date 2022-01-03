@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SideNavbar from './components/SideNavbar';
 import Header from './components/Header';
 import dataContext from './components/Context';
-import { BrowserRouter, Route, Link, Redirect, Switch } from "react-router-dom";
+import { Route} from "react-router-dom";
 import {useState, useEffect, useContext} from 'react'
 import Dashboard from './components/navBar/Dashboard'
 import Today from './components/navBar/Today'
@@ -67,7 +67,7 @@ useEffect(() => {
         console.log("tasks in datum:", datum.tasks) 
       })
       .catch(console.err);
-  }, [currentProject])
+  }, [currentProject, tasks])
 
   return (
     <div className="App">

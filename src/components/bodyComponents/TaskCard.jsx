@@ -1,10 +1,10 @@
 import React, {useState, useContext} from 'react';
-import axios from 'axios';
 import EditModal from '../todoModal/EditModal';
 import Connection from '../../Connection'
 import dataContext from '../Context';
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Droppable, Draggable } from "react-beautiful-dnd";
 import '../todoModal/CSS/editModal.css'
+import Tilt from 'react-parallax-tilt';
 
 const TaskCard = ( {task} ) => {
   const url = Connection
@@ -28,6 +28,7 @@ const TaskCard = ( {task} ) => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
+                <Tilt className="tilt">
     <Draggable draggableId={task._id}>
     {(provided) => (
     <div class="card" {...provided.draggableProps}
@@ -60,6 +61,7 @@ const TaskCard = ( {task} ) => {
   </div>
         )}
       </Draggable>
+      </Tilt>
       </div>
       )}
       </Droppable>

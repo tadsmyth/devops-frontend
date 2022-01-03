@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+/*
+Bugs To Fix:
+  -Fix Project feild not resetting
+  -Fix Search Task feild not resetting
+  
+*/
+
 In the project directory, you can rgit un:
 
 ### `npm start`

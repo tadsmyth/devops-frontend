@@ -23,10 +23,10 @@ function Header(props) {
 
     return (
 <>
-<nav className="header navbar flex-row flex-wrap navbar-expand-lg bg-primary navbar-dark py-1 fixed-top container-fluid">
+<nav id="header" className="header navbar flex-row flex-wrap navbar-expand-lg navbar-dark py-1 fixed-top container-fluid" >
   <a className="navbar-brand" href="#">
 
-  <CgInfinity className='m-1' size={45} />
+  <CgInfinity className='m-1' id="headerIcons" size={45} />
 
       {/* <img src={logo}  width="30" height="24" class="d-inline-block align-text-top"/> */}
       DevOps
@@ -42,7 +42,7 @@ function Header(props) {
       <Link to="/">
         <li className="nav-item active">
         <a className="nav-link m-2" href="#">
-        <span className="sr-only"><BsHouse size={30}/></span>
+        <span id="headerIcons" className="sr-only"><BsHouse size={30}/></span>
                 </a>
         </li>
       </Link>
@@ -51,7 +51,7 @@ function Header(props) {
       <Link to="/today">
         <li className="nav-item">
         <a className="nav-link m-2" href="#">
-        <BsBell size={30}/>
+        <BsBell id="headerIcons" size={30}/>
                 </a>
         </li>
       </Link> 
@@ -59,12 +59,12 @@ function Header(props) {
       <Link to="/settings">
         <li className="nav-item">
         <a className="nav-link m-2" href="#">
-        <BsGear size={30}/>
+        <BsGear id="headerIcons" size={30}/>
                 </a>
         </li>
       </Link>
 
-      <li>
+      <li id="headerIcons" >
         <Adding />
       </li>
 

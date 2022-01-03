@@ -5,42 +5,38 @@ import {AiOutlineSearch} from 'react-icons/ai'
 import {FaRegFlag} from 'react-icons/fa'
 import CurrentProject from '../CurrentProject';
 import axios from 'axios'
-import TodoModal from './TodoModal';
 import Connection from '../../Connection'
+
+/*
+Bugs To Fix:
+  -Fix Project feild not resetting
+*/
 
 function TodoForm(props) {
   const url = Connection
-  const [project, setProject] = useState({
-      name: '',
-      tasks: []
-  })
   const [icon, setIcon] = useState(false)
-  const [task, setTask] = useState([])
   let datum = useContext( dataContext )
-
-  const handleChange = e => {
-      setProject(previousState => ({
-        ...previousState,
-        name: e.target.value,
-      //   tasks: {TodoModal: e.target.value}
-      }))
-      setProject('')
-    }
-    
+  
   const handleSubmit = e => {
-      e.preventDefault()
-    
+    e.preventDefault()
+      const project = {
+          name: e.target.name.value,
+          tasks: [],
+          comments: []
+      }
+      console.log("target.name.value", e.target.name.value);
+      console.log("project", project);
       axios.post(`${url}devops`, project)
-        .then(res => {
-          datum.setProjects([...datum.projects, res])
-          console.log(datum.projects)
-          console.log(res.data)
+      .then(res => {
+          datum.setProjects([...datum.projects, res.data])
+          console.log("project returned",res.data)
         })
-        
+      
     }
 
   const resetFeild = () => {
-      document.getElementByClassName('projectForm').reset()
+    console.log(document.getElementByClassName);
+      document.getElementByClassName('projectInputField').reset()
     }
 
 
@@ -55,11 +51,9 @@ return (
           <input
               type='text'
               placeholder='Project Name'
-              // value={''}
               button={setIcon}
-              name='text'
+              name="name"
               className="projectInputField"
-              onChange={handleChange}
               />
 
           <button className='projectBtn' type="submit" onclick={resetFeild}>Add Project</button>
@@ -78,8 +72,6 @@ return (
       {icon ? <div>
       <BiDotsVerticalRounded />
       </div> : null}
-              {/* </form>
-              <form className='taskForms' onSubmit={handleSubmit3}> */}
               {icon ? <div>
       <FaRegFlag />
       

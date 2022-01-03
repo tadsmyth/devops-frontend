@@ -37,8 +37,9 @@
     background-color: rgba(0 0 0 / 0);
     position: relative;
     font-size: 35px;
-    right: -5px;
-    bottom: 54px;
+    color:rgb(241, 206, 160);;
+    right: 40px;
+    bottom: 2px;
 }
 
 /* Search Tasks Media only and screen */
@@ -131,8 +132,8 @@
         background-color: rgba(0 0 0 / 0);
         position: relative;
         font-size: 30px;
-        right: -3px;
-        bottom: 50px;
+        right: 40px;
+        bottom: 2px;
     }
 }
 
@@ -203,8 +204,8 @@
         background-color: rgba(0 0 0 / 0);
         position: relative;
         font-size: 30px;
-        right: -3px;
-        bottom: 50px;
+        right: 40px;
+        bottom: 2px;
     }
 }
 
@@ -238,7 +239,7 @@
         background-color: rgba(0 0 0 / 0);
         position: relative;
         font-size: 30px;
-        right: -3px;
-        bottom: 50px;
+        right: 40px;
+        bottom: 2px;
     }
 }
