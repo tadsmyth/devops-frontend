@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import SideNavbar from './components/SideNavbar';
 import Header from './components/Header';
 import dataContext from './components/Context';
-import { Route} from "react-router-dom";
+import { Route, BrowserRouter } from "react-router-dom";
 import {useState, useEffect, useContext} from 'react'
 import Dashboard from './components/navBar/Dashboard'
 import Today from './components/navBar/Today'
@@ -76,7 +76,7 @@ useEffect(() => {
         <Header />
           
         <body className='main-body'>
-          <SideNavbar />
+          {/* <SideNavbar /> */}
 
           <Route exact path="/" component={Dashboard} />
           <Route exact path="/today" component={Today} />

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import {BrowserRouter} from 'react-router-dom'
 // import reportWebVitals from './reportWebVitals'; //uncomment this line and line 17 webVitals
-
+// fix connection.js for server use front and backend.
 ReactDOM.render(
   <BrowserRouter>
     <App/>
